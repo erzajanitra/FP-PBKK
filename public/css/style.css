@@ -1,0 +1,78 @@
+.card-body {
+    background-color: #111840;
+    border-radius: 30px;
+    box-shadow: 20px 10px 10px rgb(92, 91, 91);
+}
+.btn {
+    font-size: 1.3em;
+    width: 40%;
+    background-color: white;
+    color: white;
+    border: 2px solid #111840;
+}
+.btn:hover {
+    background-color: #111840;
+    color: white;
+}
+.form-check {
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+    padding-bottom: 4%;
+}
+
+/* Team */
+.member {
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 7%;
+}
+.name {
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 10px;
+}
+.nrp {
+    font-size: 1.3em;
+    text-align: center;
+    justify-content: center;
+    font-weight: bold;
+    background: white;
+    color: black;
+    width: 80%;
+    height: 12%;
+    margin-left: 10%;
+    padding-top: 8px;
+}
+.pesan {
+    font-size: 1.1em;
+    text-align: center;
+    font-weight: lighter;
+}
+.pesan1 {
+    font-size: 1.1em;
+    text-align: center;
+    font-weight: lighter;
+    padding-bottom: 27px;
+}
+.linkedin {
+    margin-left: 35%;
+    font-size: 20px;
+}
+.github {
+    margin-left: 5%;
+    font-size: 20px;
+    color: black;
+}
+.instagram {
+    margin-left: 5%;
+    font-size: 20px;
+    color: red;
+}
+/* Footer */
+.footer {
+    background-color: #009f9f;
+    color: white;
+}
