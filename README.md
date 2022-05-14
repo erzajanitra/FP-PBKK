@@ -1,6 +1,6 @@
 ## Anggota Kelompok:
 | No | Nama  | NRP |
-| ------------- |:-------------:| -----:|
+| ------------- |:-------------:| :-----:|
 | 1 | Erza Janitradevi Nadine |   05111940000153 |
 | 2 | Florentino Benedictus|   5025201237 |
 | 3 | Fian Awamiry Maulana | 5025201222 |
@@ -13,7 +13,7 @@
 ## Laravel view and blade component
 ## Laravel session and caching
 ## Laravel feature testing and unit testing
-# Optional (minimal 2):
+# Optional:
 ## Laravel jobs and queue
 ## Laravel command and scheduling
 ## Laravel event and listener
