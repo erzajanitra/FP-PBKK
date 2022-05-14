@@ -14,9 +14,10 @@ nav ul {
     width: 100vw;
     border-radius: white;
     display: flex;
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
     align-items: center;
     margin: 1rem 5rem 1rem 0;
+    padding-left: 75%;
 }
 
 ul li {
