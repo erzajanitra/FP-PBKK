@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Queue\Listener;
+use App\Http\Requests\Auth\LoginRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +26,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 Route::get('/article', function () {
     return view('article');
@@ -35,7 +37,7 @@ Route::get('/aboutus', function () {
 });
 
 Route::post('/confirm-password', function (Request $request) {
-    if (! Hash::check($request->password, $request->user()->password)) {
+    if (!Hash::check($request->password, $request->user()->password)) {
         return back()->withErrors([
             'password' => ['The provided password does not match our records.']
         ]);
@@ -46,6 +48,6 @@ Route::post('/confirm-password', function (Request $request) {
     return redirect()->intended('settings');
 })->middleware(['auth', 'throttle:6,1'])->name('password.confirm');
 
-Route::get('/settings', function(){
+Route::get('/settings', function () {
     return view('settings');
 })->middleware(['password.confirm'])->name('settings');
