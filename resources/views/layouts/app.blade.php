@@ -18,6 +18,11 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
+            {{-- @if (isset($user))
+                 @include('layouts.navbar-login')
+            @else
+                @include('layouts.navbar') --}}
+        
             @include('layouts.navigation')
 
             <!-- Page Heading -->
