@@ -71,7 +71,7 @@
 }
 /* Footer */
 .footer {
-    background-color: #009f9f;
+    background-image: linear-gradient(to left, #36d7b7, #2ecc71);
     color: white;
     margin-top: 3%;
 }
