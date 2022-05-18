@@ -1,5 +1,5 @@
 {{-- CSS --}}
-<link rel="stylesheet" href="/css/navbar.css">
+<link rel="stylesheet" href="/css/navbarlogin.css">
 {{-- Font Poppins --}}
 <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 <nav>
