@@ -10,7 +10,15 @@
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 </head>
 <body>
-    @include('layouts.navbar')
+    {{-- @include('layouts.navbar')
+     --}}
+     {{-- @include('layouts.navbar-login') --}}
+    if( isset($_session 'user' )){
+        @include('layouts.navbar-login')
+    }
+    else{
+        @include('layouts.navbar')
+    }
     @include('layouts.konten')
     @include('layouts.footer')
 </body>
