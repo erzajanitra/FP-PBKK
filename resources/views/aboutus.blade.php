@@ -23,9 +23,9 @@
                 <p class="name">Erza Janitradevi Nadine</p>
                 <p class="nrp">05111940000153</p>
                 <p class="pesan"><b> Pesan & Kesan: </b> Terima kasih banyak Pak Agus Budi Raharjo atas ilmunya selama satu semester di kelas PBKK. Saya mendapatkan banyak pengetahuan tentang Laravel karena kelas Pak Agus Budi yang asik sehingga bisa saya pahami dengan baik. Terima kasih juga kepada Fitrah !!</p>
-                <a href="https://www.linkedin.com/in/fianawamirymaulana/" target="_blank"><i class="linkedin fab fa-linkedin-in"></i></a>
+                <a href="https://www.linkedin.com/in/erzajanitradevi/" target="_blank"><i class="linkedin fab fa-linkedin-in"></i></a>
                 <a href="https://github.com/erzajanitra" target="_blank"<i class="github fab fa-github"</i></a>
-                <a href="https://www.instagram.com/afanfiann/" target="_blank" <i class="instagram fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/erzajanitradevi/" target="_blank" <i class="instagram fab fa-instagram"></i></a>
             </div>
             <div class="col-md-12" style="text-align: center" >
                 <img src="img/Fian.png" alt="" width="200px"style="margin-top: 3%;">
