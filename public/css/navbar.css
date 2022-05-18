@@ -9,6 +9,7 @@ nav {
     width: 100vw;
     display: flex;
     color: white;
+    font-weight: bold;
 }
 nav ul {
     padding: 0.3rem 0;
@@ -17,10 +18,9 @@ nav ul {
     display: flex;
     /* justify-content: flex-end; */
     align-items: center;
-    margin: 1rem 5rem 1rem 0;
+    margin: 1rem 3rem 1rem 0;
     padding-left: 70%;
 }
-
 ul li {
     list-style: none;
     margin-left: 2rem;
@@ -29,7 +29,7 @@ ul li {
 li a {
     text-decoration: none;
     font-weight: bold;
-    light-height: 1.6;
+    /* light-height: 1.6; */
     font-size: 1.2em;
     color: white;
     /* position: relative; */

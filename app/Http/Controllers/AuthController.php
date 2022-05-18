@@ -11,8 +11,9 @@ use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
-    
-    public function show(){
+
+    public function show()
+    {
         return view('auth.manual-login');
     }
 
@@ -21,10 +22,11 @@ class AuthController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
-     */    
+     */
 
     // MANUAL LOGIN
-    public function authenticate(Request $request){
+    public function authenticate(Request $request)
+    {
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
@@ -39,11 +41,11 @@ class AuthController extends Controller
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ]);
-        
     }
 
     // RETRIEVING USER 
-    public function retrieve(Request $request){
+    public function retrieve(Request $request)
+    {
         // $user = Auth::user()->name;
         // $id = Auth::id();
 
@@ -55,20 +57,21 @@ class AuthController extends Controller
     }
 
     // CHECK AUTHENTICATION
-    public function check(){
-        if(Auth::check()){
+    public function check()
+    {
+        if (Auth::check()) {
             return redirect('dashboard');
-        }
-        else{
+        } else {
             return redirect('login');
         }
     }
 
-    public function update(Request $request){
+    public function update(Request $request)
+    {
         $request->user();
     }
 
- 
+
     public function logout(Request $request)
     {
         Auth::guard('web')->logout();
