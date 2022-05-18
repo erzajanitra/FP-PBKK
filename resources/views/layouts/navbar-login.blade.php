@@ -8,7 +8,7 @@
     <ul>
         <li><a href="/article" class="nav-li">Article</a></li>
         <li><a href="/pricelist" class="nav-li">Price List</a></li>
-        <li><a href="/pricelist" class="nav-li">Ticket reservations</a></li>
+        <li><a href="/ticket" class="nav-li">Ticket reservations</a></li>
         {{-- <li><a href="/logout" class="nav-li">Logout</a></li> --}}
         <x-slot name="content">
             <!-- Authentication -->

@@ -39,6 +39,9 @@ Route::get('/aboutus', function () {
 Route::get('/pricelist', function () {
     return view('pricelist');
 });
+Route::get('/ticket', function () {
+    return view('ticket');
+});
 
 Route::post('/confirm-password', function (Request $request) {
     if (!Hash::check($request->password, $request->user()->password)) {
