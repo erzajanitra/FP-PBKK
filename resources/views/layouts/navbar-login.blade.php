@@ -8,8 +8,8 @@
     <ul>
         <li><a href="/article" class="nav-li">Article</a></li>
         <li><a href="/pricelist" class="nav-li">Price List</a></li>
-        <li><a href="/aboutus" class="nav-li">About Us</a></li>
-        {{-- <li><a href="/" class="nav-li">Logout</a></li> --}}
+        <li><a href="/pricelist" class="nav-li">Ticket reservations</a></li>
+        {{-- <li><a href="/logout" class="nav-li">Logout</a></li> --}}
         <x-slot name="content">
             <!-- Authentication -->
             <form method="POST" action="{{ route('logout') }}">
