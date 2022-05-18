@@ -2,7 +2,10 @@
 
 @section('title', 'Dashboard Login')
 
+<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
 <x-app-layout>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
