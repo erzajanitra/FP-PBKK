@@ -20,3 +20,5 @@
 ## Laravel contracts and facade
 ## Laravel broadcasting
 ## Laravel composer package
+# Rerensi 
+* Install Alert - https://realrashid.github.io/sweet-alert/install
