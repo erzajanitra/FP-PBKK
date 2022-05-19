@@ -16,7 +16,7 @@
     <div class="Team">
         <div class="row" style="line-height: 1.2; style="text-align: center;">
             <div class="member col-md-12">
-                Dibalik layar website Bromo Adventure
+                Dibalik layar website Bromo Adventure 2022
             </div>
             <div class="col-md-12" style="text-align: center" >
                 <img src="img/Erza.png" alt="" width="200px" style="margin-top: 3%;">
