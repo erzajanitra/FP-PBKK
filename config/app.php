@@ -233,9 +233,9 @@ return [
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
     ],
 
-    'aliases' => Facade::defaultAliases()->merge([
-        // ...
-        'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+    // 'aliases' => Facades::defaultAliases()->merge([
+    //     // ...
+    //     'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
 
-    ])->toArray(),
+    // ])->toArray(),
 ];

@@ -75,3 +75,27 @@
     color: white;
     margin-top: 3%;
 }
+
+/* Ticket */
+.card-body {
+    background-image: linear-gradient(to left, #2ecc71, #36d7b7);
+    border-radius: 30px;
+    box-shadow: 20px 10px 10px rgb(92, 91, 91);
+}
+.btn {
+    font-size: 1.3em;
+    width: 40%;
+    background-color: white;
+    color: black;
+    border: 2px solid #008cba;
+}
+.btn:hover {
+    background-color: #008cba;
+    color: white;
+}
+.form-check {
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+    padding-bottom: 4%;
+}

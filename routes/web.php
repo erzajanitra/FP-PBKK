@@ -3,10 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Queue\Listener;
 use App\Http\Requests\Auth\LoginRequest;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,9 +39,16 @@ Route::get('/aboutus', function () {
 Route::get('/pricelist', function () {
     return view('pricelist');
 });
-Route::get('/ticket', function () {
-    return view('ticket');
-});
+
+// Form Ticket
+
+// Route::get('/ticket', function () {
+//     return view('ticket');
+// });
+
+//Asigment Formulir
+Route::get('/form', [TicketController::class, 'formulir']);
+Route::post('/hasil', [TicketController::class, 'hasil']);
 
 Route::post('/confirm-password', function (Request $request) {
     if (!Hash::check($request->password, $request->user()->password)) {
