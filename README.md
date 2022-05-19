@@ -202,7 +202,7 @@
 ## Laravel request, validation and response  
 **Laravel request**  
 * Laravel Request terletak pada path ```app\Http\Controllers\TicketController.php``` dan ```routes\web.php```
- * Pada path ```app\Http\Controllers\TicketController.php``
+ * Pada path ```app\Http\Controllers\TicketController.php```
     ```php  
     use App\Http\Controllers\Controller;
     use Illuminate\Http\Request;
@@ -386,7 +386,7 @@
     Route::post('/hasil', [TicketController::class, 'hasil']);
     ```  
 **Laravel response**  
-    * Laravel Response terletak pada path ```resource\views\ticket.blade.php``` dan ```resource\views\hasil.blade.php```
+* Laravel Response terletak pada path ```resource\views\ticket.blade.php``` dan ```resource\views\hasil.blade.php```
     * Pada path ```resource\views\ticket.blade.php```
     ```php
     br/>
