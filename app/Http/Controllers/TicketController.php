@@ -17,7 +17,7 @@ class TicketController extends Controller
 
     public function hasil(Request $request)
     {
-        Alert::success('Pesan Terkirim!', 'Selamat Data Anda Sudah Terkirim');
+        Alert::success('Pesan Terkirim!', 'Terima kasih sudah melakukan Reservation Ticket Bromo Adventure 2022!');
         $this->validate($request, [
             'nama' => 'required|min:8|max:50',
             'jeniskelamin' => 'required|max:1',

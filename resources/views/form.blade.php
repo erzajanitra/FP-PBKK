@@ -8,6 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ticket Reservation</title>
  
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
@@ -23,7 +24,7 @@
                     <div class="card mt-5">
                         <div class="card-body">
                             <p style="text-align: center"><img src="/img/bromo.jpg" alt="Logo Bromo" width="200px" style="border-radius: 30%; box-shadow: 10px 10px 10px rgb(92, 91, 91);"></p>
-                            <h3 class="text-center" style="font-weight: bold; padding-top: 5%">Ticket Reservation Bromo Adventure</h3>
+                            <h3 class="text-center" style="font-weight: bold; padding-top: 5%;">Ticket Reservation Bromo Adventure 2022</h3>
                             <br/>
                                 @if (count($errors) > 0)
                                 <div class="alert alert-danger">
@@ -60,7 +61,7 @@
                                 </div>
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1" >Tolong diteliti dan dicentang!</label>
+                                    <label class="form-check-label" for="exampleCheck1" >Tolong diteliti kembali, lalu dicentang!</label>
                                 </div>
                                 <div class="form-group" style="text-align: center;">
                                     <input class="btn btn-primary" type="submit" value="Kirim" style="">
