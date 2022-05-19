@@ -52,7 +52,7 @@
                                     <input class="form-control" type="text" name="alamat" value="{{ old('alamat') }}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="noktp">No KTP</label>
+                                    <label for="noktp">Nomor KTP</label>
                                     <input class="form-control" type="text" name="noktp" value="{{ old('noktp') }}">
                                 </div>
                                 <div class="form-group">

@@ -1,11 +1,15 @@
+@extends('layouts.main')
+
+@section('title', 'Dashboard Login')
+
 <x-guest-layout>
     <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
+        <x-slot name="logo" style="margin-top: 50%">
+            {{-- <a href="/">
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
+            </a> --}}
         </x-slot>
-
+        <p class="text-center" style="font-weight: bold;">Silahkan register akun Bromo Adventure 2022!</p>
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
@@ -46,7 +50,7 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+                <a class="underline text-sm text-red-600 hover:text-yellow-900" href="{{ route('login') }}">
                     {{ __('Already registered?') }}
                 </a>
 
