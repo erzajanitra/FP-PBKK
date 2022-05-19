@@ -470,7 +470,7 @@
 ## Laravel View and Blade Component  
 **Laravel View**  
 * Laravel View terletak pada path ```resource\views```
-    * Didalam path diatas terdapat beberapa folder yang kami buat, yaitu ```layouts``` dan ada beberapa tambahan otomatis ketike menginstal allert yaitu ```vendor``` dan ketika membuat menu ```login```, yaitu folder ```auth dan ```components```.
+    * Didalam path diatas terdapat beberapa folder yang kami buat, yaitu ```layouts``` dan ada beberapa tambahan otomatis ketike menginstal allert yaitu ```vendor``` dan ketika membuat menu ```login```, yaitu folder ```auth``` dan ```components```.
 ![view.png](https://drive.google.com/uc?export=view&id=1HhnEw7uetxNEuFDfifpIqlWzikwhN2GC)
 **Laravel Blade Component**  
 * Laravel Blade terletak pada path ```resource\views```, dimana didalam ```view``` tersebut nama file harus diakhir dengan ```blade.php``` dapat menggunakan templating engine Laravel yaitu ```Blade```. 
