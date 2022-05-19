@@ -85,9 +85,9 @@
 .btn {
     font-size: 1.3em;
     width: 40%;
-    background-color: white;
-    color: black;
-    border: 2px solid #008cba;
+    background-image: linear-gradient(to left, #515689, #8ccdc2);
+    color: whitesmoke;
+    border: 2px solid #00ba6c;
 }
 .btn:hover {
     background-color: #008cba;

@@ -53,7 +53,7 @@
                                 <td><img src="{{ $data->fotoktp }}" alt="" width="200px"></td>
                             </tr>
                         </table>
-                        <p style="text-align: center"><a href="/form" class="btn btn-primary" style="text-align: center" >Kembali</a></p>
+                        <p style="text-align: center"><a href="/ticket" class="btn btn-primary" style="text-align: center" >Kembali</a></p>
                     </div>
                 </div>
             </div>

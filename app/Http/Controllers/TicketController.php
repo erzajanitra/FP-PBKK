@@ -12,7 +12,7 @@ class TicketController extends Controller
     //
     public function formulir()
     {
-        return view('form');
+        return view('ticket');
     }
 
     public function hasil(Request $request)

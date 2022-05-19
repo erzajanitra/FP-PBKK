@@ -47,7 +47,7 @@ Route::get('/pricelist', function () {
 // });
 
 //Asigment Formulir
-Route::get('/form', [TicketController::class, 'formulir']);
+Route::get('/ticket', [TicketController::class, 'formulir']);
 Route::post('/hasil', [TicketController::class, 'hasil']);
 
 Route::post('/confirm-password', function (Request $request) {
