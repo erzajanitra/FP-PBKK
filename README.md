@@ -5,7 +5,7 @@
 | 2 | Florentino Benedictus|   5025201222 |
 | 3 | Fian Awamiry Maulana | 5025201235 |
 # Required:
-## Laravel route, controller and middleware  
+## Laravel Route, Controller and Middleware  
 **Laravel Route**  
 * Laravel Route terletak pada path ```routes\web.php```
 * Laravel Route Basic
@@ -199,8 +199,8 @@
         return view('settings');
     })->middleware(['password.confirm'])->name('settings');
     ```  
-## Laravel request, validation and response  
-**Laravel request**  
+## Laravel Request, Validation and Response  
+**Laravel Request**  
 * Laravel Request terletak pada path ```app\Http\Controllers\TicketController.php``` dan ```routes\web.php```
  * Pada path ```app\Http\Controllers\TicketController.php```
     ```php  
@@ -232,7 +232,7 @@
         return asset('storage') . '/' . $foto_name; // me return path/to/file.ext
     }
     ```  
-**Laravel validation**  
+**Laravel Validation**  
 * Laravel Validation terletak pada path ```resource\views\ticket.blade.php```, ```resource\views\hasil.blade.php``` dan ```routes\web.php```
     * Pada path ```resource\views\ticket.blade.php```
     ```php  
@@ -385,7 +385,7 @@
     Route::get('/ticket', [TicketController::class, 'formulir']);
     Route::post('/hasil', [TicketController::class, 'hasil']);
     ```  
-**Laravel response**  
+**Laravel Response**  
 * Laravel Response terletak pada path ```resource\views\ticket.blade.php``` dan ```resource\views\hasil.blade.php```
     * Pada path ```resource\views\ticket.blade.php```
     ```php
@@ -436,47 +436,53 @@
     ```php  
     @include('sweetalert::alert')
     ```  
-## Laravel model, eloquent and query builder  
-**Laravel model**  
+## Laravel Model, Eloquent and Query Builder  
+**Laravel Model**  
     ```php  
     
     ```  
-**Laravel eloquent**  
+**Laravel Eloquent**  
     ```php  
     
     ```  
-**Laravel query builder**  
+**Laravel Query Builder**  
     ```php  
     
     ```  
-## Laravel authentication and authorization  
-**Laravel authentication**  
+## Laravel Authentication and Authorization  
+**Laravel Authentication**  
     ```php  
     
     ```  
-**Laravel authorization**  
+**Laravel Authorization**  
     ```php  
     
     ```  
-## Laravel localization and file storage  
-**Laravel localization**  
+## Laravel Localization and File Storage  
+**Laravel Localization**  
     ```php  
     
     ```  
-**Laravel file storage**  
+**Laravel File Storage**  
     ```php  
     
     ```  
-## Laravel view and blade component  
-**Laravel view**  
-    ```php  
-    
-    ```  
+## Laravel View and Blade Component  
+**Laravel View**  
+* Laravel View terletak pada path ```resource\views```
+    * Didalam path diatas terdapat beberapa folder yang kami buat, yaitu ```layouts``` dan ada beberapa tambahan otomatis ketike menginstal allert yaitu ```vendor``` dan ketika membuat menu ```login```, yaitu folder ```auth dan ```components```.
+![view.png](https://drive.google.com/uc?export=view&id=1HhnEw7uetxNEuFDfifpIqlWzikwhN2GC)
 **Laravel Blade Component**  
-    ```php  
-    
-    ```  
-## Laravel session and caching  
+* Laravel Blade terletak pada path ```resource\views```, dimana didalam ```view``` tersebut nama file harus diakhir dengan ```blade.php``` dapat menggunakan templating engine Laravel yaitu ```Blade```. 
+    * Pada folder ```auth```
+![auth.png](https://drive.google.com/uc?export=view&id=1DYnWi5k-0205Y2TcwUIY295xCzb54vsZ)
+    * Pada folder ```components```
+![components.png](https://drive.google.com/uc?export=view&id=1ipOPmIbCI7HUu6c2NiI-YuR1LthW9tjk)
+    * Pada folder ```layouts```
+![layouts.png](https://drive.google.com/uc?export=view&id=1K2Usp9mY10Ui1r85gbIb91bJ-MkiuiP7)
+    * Pada folder ```vendor```
+![vendor.png](https://drive.google.com/uc?export=view&id=1B9RILuD5Wn17qDIhFGH6qB0ydeMEj2fs)
+## Laravel Session and Caching  
 **Laravel Session**  
     ```php  
     
@@ -485,7 +491,7 @@
     ```php  
     
     ```  
-## Laravel feature testing and unit testing  
+## Laravel Feature Testing and Unit Testing  
 **Laravel Feature Testing** 
     ```php  
     
@@ -495,7 +501,7 @@
     
     ```  
 # Optional:
-## Laravel jobs and queue 
+## Laravel Jobs and Queue 
 **Laravel Jobs**  
     ```php  
     
@@ -504,7 +510,7 @@
     ```php  
     
     ```  
-## Laravel command and scheduling  
+## Laravel Command and Scheduling  
 **Laravel Command**  
     ```php  
     
@@ -513,7 +519,7 @@
     ```php  
     
     ```  
-## Laravel event and listener  
+## Laravel Event and Listener  
 **Laravel Event**  
     ```php  
     
@@ -522,7 +528,7 @@
     ```php  
     
     ```  
-## Laravel contracts and facade  
+## Laravel Contracts and Facade  
 **Laravel Contracts**  
     ```php  
     
@@ -531,12 +537,12 @@
     ```php  
     
     ```  
-## Laravel broadcasting  
+## Laravel Broadcasting  
 **Laravel Broadcasting**  
     ```php  
     
     ```  
-## Laravel composer package  
+## Laravel Composer Package  
 **Laravel Composer Package**  
     ```php  
     
