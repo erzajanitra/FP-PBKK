@@ -593,4 +593,4 @@
     
     ```  
 # Rerensi 
-* Install Alert - https://realrashid.github.io/sweet-alert/install
+* Install Alert: https://realrashid.github.io/sweet-alert/
