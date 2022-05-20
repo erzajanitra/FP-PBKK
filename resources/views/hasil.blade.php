@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ticket Reservation</title>
+    <title>Bromo's | Ticket Reservation</title>
 
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
@@ -17,7 +17,7 @@
     {{-- CSS --}}
     <link rel="stylesheet" href="/css/style.css">
 </head>
-<div style="background: #cd4c4c;color: white;" class="col-md-12 pt-2 pb-2">
+<div style="background: #cd4c4c;color: white;" class="col-md-12 pt-1 pb-1">
     <marquee behavior="" direction="left">
         <h6 style="color: white;" class="my-auto">
              <b style="color: white"> Mohon untuk menyimpan bukti Reservation Ticket Bromo 2022 dengan cara mencapture (ScreenShot) ticket </b>
@@ -31,7 +31,7 @@
                 <div class="card mt-5">
                     <div class="card-body">
                         <p style="text-align: center"><img src="/img/bromo.jpg" alt="Logo Bromo" width="200px" style="border-radius: 30%; box-shadow: 10px 10px 10px rgb(92, 91, 91);"></p>
-                        <h3 class="text-center" style="font-weight: bold;">Ticket Reservation Bromo Adventure 2022</h3>
+                        <h3 class="text-center" style="font-weight: bold;">Ticket Trip to Bromo Adventure 2022</h3>
                         <table class="table table-bordered table-striped" style="font-size: 1.2em">
                             <tr>
                                 <td style="width:150px">Nama</td>

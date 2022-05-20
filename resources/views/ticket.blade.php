@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ticket Reservation</title>
+    <title>Bromo's | Ticket Reservation</title>
  
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
@@ -17,6 +17,13 @@
     {{-- CSS --}}
     <link rel="stylesheet" href="/css/style.css">
 </head>
+<div style="background: #cd4c4c; color: white;" class="col-md-12 pt-4 pb-1">
+    <marquee behavior="" direction="left">
+        <h6 style="color: white;" class="my-auto">
+             <b style="color: white"> Mohon untuk mengisi biodata Ticket Reservation Bromo Adventure 2022 dengan benar dan teliti! </b>
+        </h6>
+    </marquee>
+</div>
 <body style="font-family: Poppins; color:white; background-color: white; padding-top:50px; ">
         <div class="container">
             <div class="row justify-content-center">
