@@ -451,9 +451,54 @@
     ```  
 ## Laravel Authentication and Authorization  
 **Laravel Authentication**  
+* Implementasi untuk Laravel Authentication terletak pada path ```app\Http\Controllers\Auth```, dimana pada folder Auth terdapat beberapa scripts yang digunakan untuk menangani autentikasi ketika user melakukan login. 
+</br>Berikut adalah beberapa script tersebut :
+[app\Http\Controllers\Auth](https://github.com/erzajanitra/FP-PBKK/tree/5dc9465e8a896ea3e293fef5d245ccee2ab86ac9/app/Http/Controllers/Auth)
+</br><img width="300" alt="image" src="https://user-images.githubusercontent.com/75319371/169542573-3cdb4916-f9c3-451d-bb50-bb540bb21f7d.png">
+* Pada ```app\Http\Controllers\AuthController.php``` terdapat fungsi ```authenticate```yang digunakan untuk autentikasi email dan password ketika user melakukan login dan menyimpan session user tersebut. Selain itu, pada fungsi ini juga menggunakan method redirect yang akan mengarahkan user ke halaman dashboard ketika berhasil melakukan login.
     ```php  
-    
+    public function authenticate(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        if (Auth::guard('web')->attempt($credentials, true)) {
+            $request->session()->regenerate();
+
+            return redirect()->intended('dashboard');
+        }
+
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ]);
+    }
     ```  
+* Pada ```app\Http\Controllers\AuthController.php``` terdapat fungsi ```check```yang digunakan untuk mengecek apakah user sudah melakukan login atau belum. Apabila user sudah login, maka ketika user mengklik button Login user akan diarahkan ke halaman Dashboard. Sedangkan, jika belum melakukan login maka user akan diarahkan ke halaman Login untuk melakukan login.
+    ```php  
+    public function check()
+    {
+        if (Auth::check()) {
+            return redirect('dashboard');
+        } else {
+            return redirect('login');
+        }
+    }
+    ```
+* Pada ```app\Http\Controllers\AuthController.php``` terdapat fungsi ```logout```yang digunakan sebagai autentikasi ketika user melakukan logout. Terdapat dua hal yang dilakukan ketika user logout, yaitu invalidate session untuk menghapus session yang digunakan user ketika login dan regenerateToken session untuk generate session baru yang akan digunakan oleh user lain yang akan login. Setelah berhasil logout, user akan diarahkan kembali pada route "/"
+    ```php  
+    public function logout(Request $request)
+    {
+        Auth::guard('web')->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
+    }
+    ```
 **Laravel Authorization**  
     ```php  
     
