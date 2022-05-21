@@ -21,35 +21,29 @@ use App\Http\Requests\Auth\LoginRequest;
 Route::get('/', function () {
     return view('welcome');
 });
-
+// View Article
+Route::get('/article', function () {
+    return view('article');
+});
+// View About Us
+Route::get('/aboutus', function () {
+    return view('aboutus');
+});
+// View Price List
+Route::get('/pricelist', function () {
+    return view('pricelist');
+});
+// View Reservation Ticket
+//Asigment Formulir
+Route::get('/ticket', [TicketController::class, 'formulir']);
+Route::post('/hasil', [TicketController::class, 'hasil']);
+// View Dashboar Login
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__ . '/auth.php';
-
-Route::get('/article', function () {
-    return view('article');
-});
-
-Route::get('/aboutus', function () {
-    return view('aboutus');
-});
-
-Route::get('/pricelist', function () {
-    return view('pricelist');
-});
-
-// Form Ticket
-
-// Route::get('/ticket', function () {
-//     return view('ticket');
-// });
-
-//Asigment Formulir
-Route::get('/ticket', [TicketController::class, 'formulir']);
-Route::post('/hasil', [TicketController::class, 'hasil']);
-
+// View Confirm-Password
 Route::post('/confirm-password', function (Request $request) {
     if (!Hash::check($request->password, $request->user()->password)) {
         return back()->withErrors([
@@ -61,7 +55,7 @@ Route::post('/confirm-password', function (Request $request) {
 
     return redirect()->intended('settings');
 })->middleware(['auth', 'throttle:6,1'])->name('password.confirm');
-
+// View Setting Password
 Route::get('/settings', function () {
     return view('settings');
 })->middleware(['password.confirm'])->name('settings');
