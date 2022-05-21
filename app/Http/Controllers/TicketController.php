@@ -22,16 +22,16 @@ class TicketController extends Controller
             'nama' => 'required|min:8|max:50',
             'jeniskelamin' => 'required|max:1',
             'noktp' => 'required|numeric',
-            'alamat' => 'required|min:8|max:50',
+            'alamat' => 'required|min:8|max:100',
             'notelp' => 'required|numeric',
             'fotoktp' => 'required|mimes:png,jpg,jpeg|max:2048',
         ]);
-        $imageName = time().'.'.$request->fotoktp->extension();
-        $request->fotoktp->move(public_path('images'),$imageName);
+        $imageName = time() . '.' . $request->fotoktp->extension();
+        $request->fotoktp->move(public_path('images'), $imageName);
         $request->fotoktp = $imageName;
 
- 		// echo $request->bukti;
-        return view('hasil',['data' => $request]);
+        // echo $request->bukti;
+        return view('hasil', ['data' => $request]);
         // $foto_link = $this->saveFoto($request, 1);
         // $request->fotoktp = $foto_link;
         // return view('hasil', ['data' => $request]);

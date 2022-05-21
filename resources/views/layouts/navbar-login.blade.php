@@ -3,8 +3,8 @@
 {{-- Font Poppins --}}
 <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 <nav>
-    {{-- <img src="img/logo1.png" alt="" width="180px" style="padding-left: 4%; border-radius: 15px 15px 15px 15px">
-    <h4 style="padding-top: 2.5%; padding-left: 1%; font-weight:bold;">Trip to Bromo</h4> --}}
+    {{-- <img src="img/logo1.png" alt="" width="180px" style="padding-left: 4%; border-radius: 15px 15px 15px 15px"> --}}
+    <p class="judul">Bromo Adventure 2022</p>
     <ul>
         <li><a href="/article" class="nav-li">Article</a></li>
         <li><a href="/pricelist" class="nav-li">Price List</a></li>

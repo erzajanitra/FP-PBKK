@@ -16,10 +16,9 @@ nav ul {
     width: 100vw;
     border-radius: white;
     display: flex;
-    /* justify-content: flex-end; */
     align-items: center;
     margin: 1rem 3rem 1rem 0;
-    padding-left: 70%;
+    padding-left: 38%;
 }
 ul li {
     list-style: none;
@@ -29,10 +28,13 @@ ul li {
 li a {
     text-decoration: none;
     font-weight: bold;
-    /* light-height: 1.6; */
     font-size: 1.2em;
     color: white;
-    /* position: relative; */
+}
+
+li a:hover {
+    color: black;
+    text-decoration: none;
 }
 
 .logo {
@@ -52,4 +54,11 @@ li a {
 .nav-li:hover:after {
     width: 120%;
     background: black;
+}
+
+.judul {
+    padding-left: 10%;
+    padding-top: 1%;
+    font-size: 1.5em;
+    width: 70rem;
 }
