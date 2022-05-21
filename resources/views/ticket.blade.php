@@ -63,6 +63,10 @@
                                     <input class="form-control" type="text" name="noktp" value="{{ old('noktp') }}">
                                 </div>
                                 <div class="form-group">
+                                    <label for="notelp">Nomor Telepon</label>
+                                    <input class="form-control" type="text" name="notelp" value="{{ old('notelp') }}">
+                                </div>
+                                <div class="form-group">
                                     <label for="foto">Foto KTP</label>
                                     <input type="file" class="form-control-file" id="fotoktp" name="fotoktp" accept="image/png, image/jpg, image/jpeg">
                                 </div>

@@ -23,6 +23,7 @@ class TicketController extends Controller
             'jeniskelamin' => 'required|max:1',
             'noktp' => 'required|numeric',
             'alamat' => 'required|min:8|max:50',
+            'notelp' => 'required|numeric',
             'fotoktp' => 'required|mimes:png,jpg,jpeg|max:2048',
         ]);
         $foto_link = $this->saveFoto($request, 1);
@@ -31,12 +32,12 @@ class TicketController extends Controller
     }
     public function saveFoto(Request $request, $id)
     {
-        $foto = $request->ktm; // typedata : file
+        $fotoktp = $request->ktm; // typedata : file
         $foto_name = ''; // typedata : string
-        if ($foto !== NULL) {
-            $foto_name = 'foto' . '-' . $id . "." . $foto->extension(); // typedata : string
+        if ($fotoktp !== NULL) {
+            $foto_name = 'foto' . '-' . $id . "." . $fotoktp->extension(); // typedata : string
             $foto_name = str_replace(' ', '-', strtolower($foto_name)); // typedata : string
-            $foto->storeAs(null, $foto_name, ['disk' => 'public']); // memanggil function untuk menaruh file di storage
+            $fotoktp->storeAs(null, $foto_name, ['disk' => 'public']); // memanggil function untuk menaruh file di storage
         }
         return asset('storage') . '/' . $foto_name; // me return path/to/file.ext
     }
