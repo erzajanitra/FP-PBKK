@@ -50,7 +50,7 @@
                                 <td>{{ $data->noktp }}</td>
                             </tr>
                                 <td style="width:150px">Foto KTP</td>
-                                <td><img src="{{ $data->fotoktp }}" alt="" width="200px"></td>
+                                <td><img src="{{ asset('images/'.$data->fotoktp) }}" alt="" width="200px"></td>
                             </tr>
                         </table>
                         <p style="text-align: center"><a href="/ticket" class="btn btn-primary" style="text-align: center" >Kembali</a></p>
