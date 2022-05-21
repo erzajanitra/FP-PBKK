@@ -536,8 +536,37 @@
 ![vendor.png](https://drive.google.com/uc?export=view&id=1B9RILuD5Wn17qDIhFGH6qB0ydeMEj2fs)
 ## Laravel Session and Caching  
 **Laravel Session**  
+Implementasi Laravel Session terdapat pada Controller, yaitu ConfirmablePasswordController.php pada folder Auth ``app\Http\Controllers\Auth\ConfirmablePasswordController.php`` dan AuthController.php pada path ```app\Http\Controllers\AuthController.php```
+* Pada AuthController.php menggunakan method ``regenerate`` untuk menghapus session yang telah tersimpan dan menggantikannya dengan session yang baru pada fungsi ``authenticate``. 
     ```php  
-    
+    if (Auth::guard('web')->attempt($credentials, true)) {
+            $request->session()->regenerate();
+
+            return redirect()->intended('dashboard');
+        }
+    ```  
+    Selain menggunakan session regenerate, dapat juga menggunakan method ``invalidate`` untuk menghapus semua data dalam sebuah session dengan single statement. 
+   ```php  
+    $request->session()->invalidate();
+    ```  
+    Method tersebut biasa digunakan untuk menghapus session ketika user melakukan logout, sehingga data yang terdapat pada session dari user tersebut terhapus dan tidak dapat diakses oleh user lain.
+* Pada ConfirmablePasswordController.php menggunakan method ``put`` untuk menyimpan input data pada session yang terdapat pada fungsi ``store``. Pada fungsi ini, method ``put``digunakan untuk menyimpan password yang telah diinputkan oleh user sebagai confirmed password sehingga user dapat mengakses akun yang dimiliki. 
+    ```php  
+    public function store(Request $request)
+    {
+        if (! Auth::guard('web')->validate([
+            'email' => $request->user()->email,
+            'password' => $request->password,
+        ])) {
+            throw ValidationException::withMessages([
+                'password' => __('auth.password'),
+            ]);
+        }
+
+        $request->session()->put('auth.password_confirmed_at', time());
+
+        return redirect()->intended(RouteServiceProvider::HOME);
+    }
     ```  
 **Laravel Caching**  
     ```php  
