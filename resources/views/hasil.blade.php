@@ -49,6 +49,11 @@
                                 <td style="width:150px">Nomor KTP</td>
                                 <td>{{ $data->noktp }}</td>
                             </tr>
+                            <tr>
+                                <td style="width:150px">Nomor Telepon</td>
+                                <td>{{ $data->notelp }}</td>
+                            </tr>
+                            <tr>
                                 <td style="width:150px">Foto KTP</td>
                                 <td><img src="{{ asset('images/'.$data->fotoktp) }}" alt="" width="200px"></td>
                             </tr>

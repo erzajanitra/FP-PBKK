@@ -23,6 +23,7 @@ class TicketController extends Controller
             'jeniskelamin' => 'required|max:1',
             'noktp' => 'required|numeric',
             'alamat' => 'required|min:8|max:50',
+            'notelp' => 'required|numeric',
             'fotoktp' => 'required|mimes:png,jpg,jpeg|max:2048',
         ]);
         $imageName = time().'.'.$request->fotoktp->extension();
