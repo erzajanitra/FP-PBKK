@@ -36,6 +36,7 @@ Route::get('/pricelist', function () {
 // View Reservation Ticket
 //Asigment Formulir
 Route::get('/ticket', [TicketController::class, 'formulir']);
+// Route::post('/ticket', [TicketController::class, 'store']);
 Route::post('/hasil', [TicketController::class, 'hasil']);
 // View Dashboar Login
 Route::get('/dashboard', function () {
@@ -59,3 +60,14 @@ Route::post('/confirm-password', function (Request $request) {
 Route::get('/settings', function () {
     return view('settings');
 })->middleware(['password.confirm'])->name('settings');
+
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
+
+Route::get('/private', [HomeController::class, 'private'])->name('private');
+Route::get('/response', [HomeController::class, 'response'])->name('response');
+
+Route::get('/post', [PostController::class, 'index']);
+Route::get('/post/create', [PostController::class, 'create']);
+Route::get('/post/edit/{id}', [PostController::class, 'edit']);
+Route::get('/post/delete/{post}', [PostController::class, 'destroy'])->middleware('can:delete,post');

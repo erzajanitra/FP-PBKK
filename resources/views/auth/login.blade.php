@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.loggedin')
 
 @section('title', 'Dashboard Login')
 
@@ -17,7 +17,7 @@
             </a> --}}
             <p style="text-align: center"><img src="/img/bromo.jpg" alt="Logo Bromo" width="250px" style="border-radius: 30%; box-shadow: 10px 10px 10px rgb(92, 91, 91);"></p>
         </x-slot>
-        <p class="text-center" style="font-weight: bold;">Silahkan Login akun Bromo Adventure 2022!</p>
+        <p class="text-center" style="font-weight: bold;">Login Bromo Adventure 2022!</p>
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
 

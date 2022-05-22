@@ -44,7 +44,7 @@
                                 @endif
                             <br/>
                              <!-- form hasil -->
-                            <form action="/hasil" method="post" enctype="multipart/form-data" style="font-size: 1.2em">
+                            <form action="/hasil" enctype="multipart/form-data" style="font-size: 1.2em">
                                 {{ csrf_field() }}
                                 <div class="form-group">
                                     <label for="nama">Nama Lengkap</label>

@@ -53,6 +53,7 @@ class AuthController extends Controller
         $user = $request->user()->name;
         $id = $request->user()->id;
 
+
         return view('dashboard', compact(['user', 'id']));
     }
 
