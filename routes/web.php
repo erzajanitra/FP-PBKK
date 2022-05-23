@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\TicketController;
+use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Queue\Listener;
 use App\Http\Requests\Auth\LoginRequest;
@@ -22,8 +23,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 // View Article
-Route::get('/article', function () {
-    return view('article');
+Route::group(['prefix' => 'article'], function () {
+    Route::get("/", [ArticleController::class, 'index']);
+    Route::get("/{article:slug}", [ArticleController::class, 'detail']);
 });
 // View About Us
 Route::get('/aboutus', function () {
