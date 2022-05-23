@@ -44,15 +44,25 @@
                                 @endif
                             <br/>
                              <!-- form hasil -->
-                             <form action="{{ route('ticket.buat-data','id') }}" method="post" enctype="multipart/form-data" style="font-size: 1.2em">
+                             <form action="{{ route('ticket.buat-data') }}" method="post" enctype="multipart/form-data" style="font-size: 1.2em">
                                 {{ csrf_field() }}
                                 <div class="form-group">
                                     <label for="nama">Nama Lengkap</label>
-                                    <input class="form-control" type="text" name="nama" value="{{ old('nama') }}">
+                                    <input class="form-control" type="text" name="nama" value="{{ old('nama') }}" list="nama-list">
+                                    <datalist id="nama-list">
+                                        @foreach ($data as $d)
+                                            <option data-value="{{ $d->id }}">{{ $d->nama }}</option>
+                                        @endforeach
+                                    </datalist>
                                 </div>
                                 <div class="form-group">
                                     <label for="jeniskelamin">Jenis Kelamin (L/P)</label>
-                                    <input class="form-control" type="text" name="jeniskelamin" value="{{ old('jeniskelamin') }}">
+                                    <input class="form-control" type="text" name="jeniskelamin" value="{{ old('jeniskelamin') }}" list="jk-list">
+                                    <datalist id="jk-list">
+                                        @foreach ($data as $d)
+                                            <option data-value="{{ $d->id }}">{{ $d->jeniskelamin }}</option>
+                                        @endforeach
+                                    </datalist>
                                 </div>
                                 <div class="form-group">
                                     <label for="alamat">Alamat Lengkap</label>

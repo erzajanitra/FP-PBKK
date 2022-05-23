@@ -42,7 +42,7 @@ Route::group(['prefix' => 'ticket', 'as' => 'ticket.'], function(){
     Route::get('/', [TicketController::class, 'index'])->name('home');
     Route::get('/buat', [TicketController::class, 'create'])->name('tambah-data');
     Route::post('/buat-data', [TicketController::class, 'store'])->name('buat-data');
-    Route::get('/hasil', [TicketController::class, 'show'])->name('show');
+    Route::get('/hasil/{id}', [TicketController::class, 'show'])->name('show');
        
 
 });

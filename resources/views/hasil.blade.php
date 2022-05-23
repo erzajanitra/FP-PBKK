@@ -56,7 +56,7 @@
                             </tr>
                             <tr>
                                 <td style="width:150px">Foto KTP</td>
-                                <td><img src="{{ $data->fotoktp }}" alt="" width="200px"></td>
+                                <td><img src="{{ asset('storage/images/'. $data->fotoktp) }}" alt="" width="200px"></td>
                             </tr>
                             @endforeach
                         </table>

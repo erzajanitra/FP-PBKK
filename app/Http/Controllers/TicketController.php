@@ -23,8 +23,13 @@ class TicketController extends Controller
         // return view('ticket');
     }
     public function create(){
-        return view('ticket');
+        $data = Ticket::all();
+        return view('ticket', [
+            'data' => $data,
+        ]);
     }
+        // return view('ticket');
+    
  
     public function store(Request $request)
     {
@@ -37,9 +42,9 @@ class TicketController extends Controller
             'notelp' => 'required|numeric',
             'fotoktp' => 'required|mimes:png,jpg,jpeg|max:2048',
         ]);
-        // $imageName = time() . '.' . $request->fotoktp->extension();
-        // $request->fotoktp->move(public_path('images'), $imageName);
-        // $request->fotoktp = $imageName;
+        $imageName = time() . '.' . $request->fotoktp->extension();
+        $request->fotoktp->move(public_path('images'), $imageName);
+        $request->fotoktp = $imageName;
         
         Ticket::create($validatedData);
         return redirect()->route('ticket.show')->with('tambah_data', 'Penambahan Pengguna berhasil');
@@ -56,15 +61,12 @@ class TicketController extends Controller
     //     }
     //     return asset('storage') . '/' . $foto_name; // me return path/to/file.ext
     // }
-    public function show()
+    public function show( $id)
     {
         //
-        $data = Ticket::all();
-        // return view('hasil');
-        // $data = Ticket::where('id', $id);
+        $data = Ticket::where('id', $id)->first();
         return view('hasil', [
-            'data' => $data,
-            // 'id' => $id,
+            'data' => $data
         ]);
     }
 }
