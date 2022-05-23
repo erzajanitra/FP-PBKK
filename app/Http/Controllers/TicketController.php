@@ -16,25 +16,7 @@ class TicketController extends Controller
     {
         return view('ticket');
     }
-    public function store(Request $request)
-    {
-        // Alert::success('Pesan Terkirim!', 'Terima kasih sudah melakukan Reservation Ticket Bromo Adventure 2022!');
-        $this->validate($request, [
-            'nama' => 'required|min:8|max:50',
-            'jeniskelamin' => 'required|max:1',
-            'noktp' => 'required|numeric',
-            'alamat' => 'required|min:8|max:100',
-            'notelp' => 'required|numeric',
-            'fotoktp' => 'required|mimes:png,jpg,jpeg|max:2048',
-        ]);
-        Ticket::create($this);
-        $imageName = time() . '.' . $request->fotoktp->extension();
-        $request->fotoktp->move(public_path('images'), $imageName);
-        $request->fotoktp = $imageName;
-
-        return view('hasil', ['data' => $request]);
-    }
-
+   
     public function hasil(Request $request)
     {
         Alert::success('Pesan Terkirim!', 'Terima kasih sudah melakukan Reservation Ticket Bromo Adventure 2022!');
@@ -64,12 +46,12 @@ class TicketController extends Controller
     //     }
     //     return asset('storage') . '/' . $foto_name; // me return path/to/file.ext
     // }
-    public function show($id)
-    {
-        //
-        $data = Ticket::where('id', $id)->first();
-        return view('hasil', [
-            'data' => $data
-        ]);
-    }
+    // public function show($id)
+    // {
+    //     //
+    //     $data = Ticket::where('id', $id)->first();
+    //     return view('hasil', [
+    //         'data' => $data
+    //     ]);
+    // }
 }

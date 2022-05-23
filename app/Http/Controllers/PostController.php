@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
+use Illuminate\Support\Facades\Gate;
 
 class PostController extends Controller
 {
@@ -61,21 +62,21 @@ class PostController extends Controller
         $user = Auth::user();
         $post = Post::find($id);
 
-        // menggunakan model user
-        if ($user && $user->can('update', $post)) {
-            return view('post-detail', ['msg' => 'User can edit post']); 
-        }else{
-            abort(403);
-        }
+        // // menggunakan model user
+        // if ($user && $user->can('update', $post)) {
+        //     return view('post-detail', ['msg' => 'User can edit post']); 
+        // }else{
+        //     abort(403);
+        // }
 
         // menggunakan response
-        // $response = Gate::inspect('update', $post);
+        $response = Gate::inspect('update', $post);
 
-        // if ($response->allowed()) {
-        //     return view('post-detail', ['msg' => 'User can edit post']); 
-        // } else {
-        //     echo $response->message();
-        // }
+        if ($response->allowed()) {
+            return view('post-detail', ['msg' => 'User can edit post']); 
+        } else {
+            echo $response->message();
+        }
     }
 
     /**
@@ -100,4 +101,5 @@ class PostController extends Controller
     {
         return view('post-detail', ['msg' => 'user can delete post']); 
     }
+    
 }
