@@ -20,7 +20,7 @@ class CreateTicketsTable extends Migration
             $table->string('alamat');
             $table->string('noktp');
             $table->string('notelp');
-            $table->string('foto');
+            $table->string('fotoktp');
             $table->timestamps();
         });
     }
