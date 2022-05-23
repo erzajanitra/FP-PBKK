@@ -15,7 +15,7 @@
             {{-- <a href="/">
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
             </a> --}}
-            <p style="text-align: center"><img src="/img/bromo.jpg" alt="Logo Bromo" width="250px" style="border-radius: 30%; box-shadow: 10px 10px 10px rgb(92, 91, 91);"></p>
+            {{-- <p style="text-align: center"><img src="/img/bromo.jpg" alt="Logo Bromo" width="250px" style="border-radius: 30%; box-shadow: 10px 10px 10px rgb(92, 91, 91);"></p> --}}
         </x-slot>
         <p class="text-center" style="font-weight: bold;">Login Bromo Adventure 2022!</p>
         <!-- Session Status -->
