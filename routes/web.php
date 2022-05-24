@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\PricelistController;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Queue\Listener;
 use App\Http\Requests\Auth\LoginRequest;
