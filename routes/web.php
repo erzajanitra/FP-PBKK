@@ -32,9 +32,7 @@ Route::get('/aboutus', function () {
     return view('aboutus');
 });
 // View Price List
-Route::get('/pricelist', function () {
-    return view('pricelist');
-});
+Route::get('/pricelist', [PricelistController::class, 'index']);
 // View Time Line
 Route::get('/timeline', function () {
     return view('timeline');

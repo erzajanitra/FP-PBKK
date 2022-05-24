@@ -31,5 +31,16 @@ class DatabaseSeeder extends Seeder
 
         // factory artikel
         Article::factory(15)->create();
+		
+		// contoh pricelist
+        Pricelist::create([
+            'name' => 'Paket Terusan',
+            'price' => '500000'
+        ]);
+
+        Pricelist::create([
+            'name' => 'Paket Reguler',
+            'price' => '80000'
+        ]);
     }
 }
