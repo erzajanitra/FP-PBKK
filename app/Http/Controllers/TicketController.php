@@ -15,26 +15,27 @@ class TicketController extends Controller
     public function index()
     {
         // get all data from Ticket table
-        $data= Ticket::all();
+        $data = Ticket::all();
         return view('ticket', [
             'data' => $data
         ]);
         // $ticket = Ticket::all();
         // return view('ticket');
     }
-    public function create(){
+    public function create()
+    {
         $data = Ticket::all();
         return view('ticket', [
             'data' => $data,
         ]);
     }
-        // return view('ticket');
-    
- 
+    // return view('ticket');
+
+
     public function store(Request $request)
     {
         Alert::success('Pesan Terkirim!', 'Terima kasih sudah melakukan Reservation Ticket Bromo Adventure 2022!');
-        $validatedData = $request->validate( [
+        $validatedData = $request->validate([
             'nama' => 'required|min:8|max:50',
             'jeniskelamin' => 'required|max:1',
             'noktp' => 'required|numeric',
@@ -45,7 +46,7 @@ class TicketController extends Controller
         $imageName = time() . '.' . $request->fotoktp->extension();
         $request->fotoktp->move(public_path('images'), $imageName);
         $request->fotoktp = $imageName;
-        
+
         Ticket::create($validatedData);
         return redirect()->route('ticket.show')->with('tambah_data', 'Penambahan Pengguna berhasil');
         // return view('hasil', ['data' => $request]);
@@ -61,10 +62,11 @@ class TicketController extends Controller
     //     }
     //     return asset('storage') . '/' . $foto_name; // me return path/to/file.ext
     // }
-    public function show( $id)
+    public function show()
     {
-        //
-        $data = Ticket::where('id', $id)->first();
+        // Problem
+        //$data = Ticket::where('id', $id)->first();
+        $data = Ticket::all();
         return view('hasil', [
             'data' => $data
         ]);
