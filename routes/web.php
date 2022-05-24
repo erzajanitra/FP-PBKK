@@ -40,13 +40,11 @@ Route::get('/pricelist', function () {
 // Route::get('/ticket', [TicketController::class, 'formulir']);
 // // Route::post('/ticket', [TicketController::class, 'store']);
 // Route::post('/hasil', [TicketController::class, 'hasil']);
-Route::group(['prefix' => 'ticket', 'as' => 'ticket.'], function(){
+Route::group(['prefix' => 'ticket', 'as' => 'ticket.'], function () {
     Route::get('/', [TicketController::class, 'index'])->name('home');
     Route::get('/buat', [TicketController::class, 'create'])->name('tambah-data');
     Route::post('/buat-data', [TicketController::class, 'store'])->name('buat-data');
     Route::get('/hasil/{id}', [TicketController::class, 'show'])->name('show');
-       
-
 });
 // View Dashboar Login
 Route::get('/dashboard', function () {

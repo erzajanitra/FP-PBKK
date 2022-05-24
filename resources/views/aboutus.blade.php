@@ -23,7 +23,13 @@
 <body>
     <div class="container" style="font-family: Poppins;">
         <div class="Team">
-            <div class="row" style="line-height: 1.2; text-align: center;">
+            <div class="row" style="line-height: 1.2; text-align: center; padding-top:2%">
+                <div class="member col-md-12">
+                    Apa itu Bromo Adventure 2022?
+                </div>
+                <div class="col-md-12" style="text-align: center; padding-top:2%" >
+                    <p class="pesan">Bromo Adventure menyediakan akses bagi masyarakat untuk menemukan dan memesan berbagai layanan transportasi, akomodasi, aktivitas selama berwisata di Bromo. Sebagai penyedia layanan wisata nomor satu di Bromo, Bromo Adventure memiliki portofolio produk yang lengkap meliputi layanan transportasi serperti sewa mobil jeep dan antar jemput ke destinasi wisata. Bromo Adventure menawarkan bantuan untuk pembelian tiket masuk ke kawasan wisata Puncak Bromo, baik secara online dan offline.</p>
+                </div>
                 <div class="member col-md-12">
                     Dibalik layar website Bromo Adventure 2022
                 </div>
