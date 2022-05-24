@@ -35,6 +35,10 @@ Route::get('/aboutus', function () {
 Route::get('/pricelist', function () {
     return view('pricelist');
 });
+// View Time Line
+Route::get('/timeline', function () {
+    return view('timeline');
+});
 // View Reservation Ticket
 //Asigment Formulir
 // Route::get('/ticket', [TicketController::class, 'formulir']);
