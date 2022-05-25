@@ -58,13 +58,13 @@
             <div class="container left">
                 <div class="content">
                     <h2>23 Mei 2022</h2>
-                    <p>Update ticket reservations-dropdown.</p>
+                    <p>Update menu ticket reservations-dropdown.</p>
                 </div>
             </div>
             <div class="container right">
                 <div class="content">
                     <h2>20 Mei 2022</h2>
-                    <p>Update view ticket, hasil & runing text.</p>
+                    <p>Update view ticket, view hasil &  add runing text.</p>
                 </div>
             </div>
             <div class="container left">
@@ -76,7 +76,7 @@
             <div class="container right">
                 <div class="content">
                     <h2>18 Mei 2022</h2>
-                    <p>Add menu Login, Dashboard, & Logout.</p>
+                    <p>Add menu Login, menu Dashboard, & menu Logout.</p>
                 </div>
             </div>
             <div class="container left">
