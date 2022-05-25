@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Article;
+use App\Models\Pricelist;
 
 class DatabaseSeeder extends Seeder
 {
