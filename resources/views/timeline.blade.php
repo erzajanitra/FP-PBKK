@@ -24,10 +24,22 @@
 <body>
     <div class="container" style="font-family: Poppins;">
         <div class="timeline">
-            <div class="container right">
+            {{-- <div class="container right">
                 <div class="content">
                     <h2>28 Mei 2022</h2>
                     <p>Untuk penggunaan <b>required</b> sudah menggunakan Laravel route, controller and middleware, Laravel request, validation and response, Laravel model, eloquent and query builder, Laravel authentication and authorization, Laravel localization and file storage, Laravel view and blade component, Laravel session and caching, Laravel feature testing and unit testing. Selanjutnya untuk penggunaan <b>optional</b> sudah menggunakan Laravel event and listener dan Laravel composer package.</p>
+                </div>
+            </div> --}}
+            <div class="container left">
+                <div class="content">
+                    <h2>19 Mei 2022 - 03 Juni 2022</h2>
+                    <p>Add readme <b>Required</b> & <b>Optional</b>.</p>
+                </div>
+            </div>
+            <div class="container right">
+                <div class="content">
+                    <h2>25 Mei 2022</h2>
+                    <p>Add menu Time Line & Price List.</p>
                 </div>
             </div>
             <div class="container left">
@@ -35,6 +47,42 @@
                     <h2>24 Mei 2022</h2>
                     <p>Untuk penggunaan <b>required</b> sudah menggunakan Laravel route, controller and middleware, Laravel request, validation and response, Laravel model, eloquent and query builder, Laravel authentication and authorization, Laravel localization and file storage, Laravel view and blade component, Laravel session and caching. Selanjutnya untuk penggunaan <b>optional</b> sudah menggunakan Laravel event and listener dan Laravel composer package.
                     </p>
+                </div>
+            </div>
+            <div class="container right">
+                <div class="content">
+                    <h2>24 Mei 2022</h2>
+                    <p>Update about us, add article, add factory.</p>
+                </div>
+            </div>
+            <div class="container left">
+                <div class="content">
+                    <h2>23 Mei 2022</h2>
+                    <p>Update ticket reservations-dropdown.</p>
+                </div>
+            </div>
+            <div class="container right">
+                <div class="content">
+                    <h2>20 Mei 2022</h2>
+                    <p>Update view ticket, hasil & runing text.</p>
+                </div>
+            </div>
+            <div class="container left">
+                <div class="content">
+                    <h2>19 Mei 2022</h2>
+                    <p>Add menu Ticket Reseveration & Install Alert.</p>
+                </div>
+            </div>
+            <div class="container right">
+                <div class="content">
+                    <h2>18 Mei 2022</h2>
+                    <p>Add menu Login, Dashboard, & Logout.</p>
+                </div>
+            </div>
+            <div class="container left">
+                <div class="content">
+                    <h2>17 Mei 2022</h2>
+                    <p>Add menu About Us.</p>
                 </div>
             </div>
             <div class="container right">

@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'About Us')
+@section('title', 'Price List')
 
 <head>
     <meta charset="UTF-8">
