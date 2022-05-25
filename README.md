@@ -572,57 +572,6 @@ Implementasi Laravel Session terdapat pada Controller, yaitu ConfirmablePassword
     ```php  
     
     ```  
-## Laravel Feature Testing and Unit Testing  
-**Laravel Feature Testing** 
-    ```php  
-    
-    ```  
-**Laravel Unit Testing**  
-    ```php  
-    
-    ```  
-# Optional:
-## Laravel Jobs and Queue 
-**Laravel Jobs**  
-    ```php  
-    
-    ```  
-**Laravel Queue**  
-    ```php  
-    
-    ```  
-## Laravel Command and Scheduling  
-**Laravel Command**  
-    ```php  
-    
-    ```  
-**Laravel Scheduling**  
-    ```php  
-    
-    ```  
-## Laravel Event and Listener  
-**Laravel Event**  
-    ```php  
-    
-    ```  
-**Laravel Listener**  
-    ```php  
-    
-    ```  
-## Laravel Contracts and Facade  
-**Laravel Contracts**  
-    ```php  
-    
-    ```  
-**Laravel Facadde**  
-    ```php  
-    
-    ```  
-## Laravel Broadcasting  
-**Laravel Broadcasting**  
-    ```php  
-    
-    ```  
 ## Laravel Composer Package  
 **Laravel Composer Package**  
     ```php  
