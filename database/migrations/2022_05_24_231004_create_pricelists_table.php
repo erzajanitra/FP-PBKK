@@ -16,6 +16,7 @@ class CreatePricelistsTable extends Migration
         Schema::create('pricelists', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('description');
             $table->integer('price');
             $table->timestamps();
         });

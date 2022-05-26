@@ -35,13 +35,21 @@ class DatabaseSeeder extends Seeder
 		
 		// contoh pricelist
         Pricelist::create([
-            'name' => 'Paket Terusan',
-            'price' => '500000'
+            'name' => 'Paket Unlimited',
+            'description' => 'Malang - Makan - Bukit Teletubies - Bromo',
+            'price' => '300000'
+        ]);
+
+        Pricelist::create([
+            'name' => 'Paket Medium',
+            'description' => 'Malang - Bukit Teletubies - Bromo',
+            'price' => '200000'
         ]);
 
         Pricelist::create([
             'name' => 'Paket Reguler',
-            'price' => '80000'
+            'description' => 'Malang - Bromo',
+            'price' => '100000'
         ]);
     }
 }

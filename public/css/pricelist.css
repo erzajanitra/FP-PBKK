@@ -1,0 +1,44 @@
+.pricetitle {
+    font-size: 4em;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 7%;
+    color: rgb(9, 9, 80);
+}
+.listharga {
+    font-size: 1.1em;
+    text-align: center;
+    background-image: linear-gradient(to left, #3f3e63, #1d3681);
+    margin: auto;
+    color: white;
+    border-radius: 10px 10px 10px 10px;
+    width: 50%;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+}
+/* The actual content */
+.content {
+    padding: 20px 30px;
+    background-color: #111840;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 10px 10px 10px 10px;
+    width: 60%;
+    margin: auto;
+}
+/* Container around content */
+.container {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+    padding-top: 4%;
+    color: white;
+}
+.price {
+    font-size: 1.3em;
+    width: 40%;
+    background-image: linear-gradient(to left, #515689, #16dcbb);
+    color: whitesmoke;
+    border: 2px solid #081148;
+    margin: auto;
+}
