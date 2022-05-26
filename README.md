@@ -3,7 +3,7 @@
 | ------------- |:-------------:| :-----:|
 | 1 | Erza Janitradevi Nadine |   05111940000153 |
 | 2 | Florentino Benedictus|   5025201222 |
-| 3 | Fian Awamiry Maulana | 5025201235 |
+| 3 | Fian Awamiry Maulana | 5025201035 |
 # Required:
 ## Laravel Route, Controller and Middleware  
 **Laravel Route**  
