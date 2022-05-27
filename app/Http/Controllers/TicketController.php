@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Pricelist;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\DB;
@@ -22,11 +23,13 @@ class TicketController extends Controller
         // $ticket = Ticket::all();
         // return view('ticket');
     }
-    public function create()
+    public function create($id)
     {
-        $data = Ticket::all();
+        $data = Ticket::findOrFail($id);
+        $price = Pricelist::find($data->pricelists_id);
         return view('ticket', [
             'data' => $data,
+            'price' => $price,
         ]);
     }
     // return view('ticket');
