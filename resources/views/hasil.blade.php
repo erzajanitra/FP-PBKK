@@ -35,6 +35,14 @@
                         <table class="table table-bordered table-striped" style="font-size: 1.2em">
                             @foreach ( $data as $data )
                             <tr>
+                                <td style="width:150px">Paket Wisata</td>
+                                <td>{{ $data->namawisata }}</td>
+                            </tr>
+                            <tr>
+                                <td style="width:200px">Harga Ticket</td>
+                                <td>{{ $data->harga}}</td>
+                            </tr>
+                            <tr>
                                 <td style="width:150px">Nama</td>
                                 <td>{{ $data->nama }}</td>
                             </tr>

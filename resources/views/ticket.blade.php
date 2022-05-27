@@ -47,6 +47,24 @@
                              <form action="{{ route('ticket.buat-data') }}" method="post" enctype="multipart/form-data" style="font-size: 1.2em">
                                 {{ csrf_field() }}
                                 <div class="form-group">
+                                    <label for="namawisata">Pilih Paket Wisata</label>
+                                    <input class="form-control" type="text" name="namawisata" value="{{ old('namawisata') }}" list="nama-list">
+                                    <datalist id="nama-list">
+                                        @foreach ($data as $d)
+                                            <option data-value="{{ $d->id }}">{{ $d->namawisata }}</option>
+                                        @endforeach
+                                    </datalist>
+                                </div>
+                                <div class="form-group">
+                                    <label for="harga">Harga Ticket</label>
+                                    <input class="form-control" type="text" name="harga" value="{{ old('harga') }}" list="nama-list">
+                                    <datalist id="nama-list">
+                                        @foreach ($data as $d)
+                                            <option data-value="{{ $d->id }}">{{ $d->harga }}</option>
+                                        @endforeach
+                                    </datalist>
+                                </div>
+                                <div class="form-group">
                                     <label for="nama">Nama Lengkap</label>
                                     <input class="form-control" type="text" name="nama" value="{{ old('nama') }}" list="nama-list">
                                     <datalist id="nama-list">

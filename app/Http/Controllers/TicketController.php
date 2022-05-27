@@ -36,6 +36,8 @@ class TicketController extends Controller
     {
         Alert::success('Pesan Terkirim!', 'Terima kasih sudah melakukan Reservation Ticket Bromo Adventure 2022!');
         $validatedData = $request->validate([
+            'namawisata' => 'required|min:8|max:50',
+            'harga' => 'required|numeric',
             'nama' => 'required|min:8|max:50',
             'jeniskelamin' => 'required|max:1',
             'noktp' => 'required|numeric',
