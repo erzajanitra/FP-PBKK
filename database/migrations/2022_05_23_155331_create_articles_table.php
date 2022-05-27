@@ -19,7 +19,7 @@ class CreateArticlesTable extends Migration
 			$table->foreignId('user_id');
             $table->string('slug')->unique();
             $table->text('body');
-            $table->string('excerpt');
+            $table->text('excerpt');
             $table->timestamps();
         });
     }

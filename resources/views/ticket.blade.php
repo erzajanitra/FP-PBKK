@@ -51,7 +51,7 @@
                                     <input class="form-control" type="text" name="namawisata" value="{{ old('namawisata') }}" list="nama-list">
                                     <datalist id="nama-list">
                                         @foreach ($data as $d)
-                                            <option data-value="{{ $d->id }}">{{ $d->namawisata }}</option>
+                                            <option data-value="{{ $d->pricelist->pricelists_id }}">{{ $d->pricelist->name}}</option>
                                         @endforeach
                                     </datalist>
                                 </div>
@@ -60,7 +60,7 @@
                                     <input class="form-control" type="text" name="harga" value="{{ old('harga') }}" list="nama-list">
                                     <datalist id="nama-list">
                                         @foreach ($data as $d)
-                                            <option data-value="{{ $d->id }}">{{ $d->harga }}</option>
+                                            <option data-value="{{ $d->pricelist->pricelists_id }}">{{ $d->pricelist->price}}</option>
                                         @endforeach
                                     </datalist>
                                 </div>

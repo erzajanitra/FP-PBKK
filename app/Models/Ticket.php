@@ -11,4 +11,8 @@ class Ticket extends Model
     protected $table = 'tickets';
     protected $guarded = ['id'];
     // protected $fillable = ['nama', 'jeniskelamin', 'alamat','noktp','notelp','fotoktp'];
+
+    public function pricelist(){
+        return $this->belongsTo(Pricelist::class);
+    }
 }
