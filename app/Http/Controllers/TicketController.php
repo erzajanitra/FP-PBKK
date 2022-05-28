@@ -23,13 +23,13 @@ class TicketController extends Controller
         // $ticket = Ticket::all();
         // return view('ticket');
     }
-    public function create($id)
+    public function create()
     {
-        $data = Ticket::findOrFail($id);
-        $price = Pricelist::find($data->pricelists_id);
+        $data = Ticket::All();
+        // $price = Pricelist::find($data->pricelists_id);
         return view('ticket', [
             'data' => $data,
-            'price' => $price,
+            // 'price' => $price,
         ]);
     }
     // return view('ticket');
@@ -39,8 +39,8 @@ class TicketController extends Controller
     {
         Alert::success('Pesan Terkirim!', 'Terima kasih sudah melakukan Reservation Ticket Bromo Adventure 2022!');
         $validatedData = $request->validate([
-            'namawisata' => 'required|min:8|max:50',
-            'harga' => 'required|numeric',
+            // 'namawisata' => 'required|min:8|max:50',
+            // 'harga' => 'required|numeric',
             'nama' => 'required|min:8|max:50',
             'jeniskelamin' => 'required|max:1',
             'noktp' => 'required|numeric',
@@ -48,9 +48,18 @@ class TicketController extends Controller
             'notelp' => 'required|numeric',
             'fotoktp' => 'required|mimes:png,jpg,jpeg|max:2048',
         ]);
-        $imageName = time() . '.' . $request->fotoktp->extension();
-        $request->fotoktp->move(public_path('images'), $imageName);
-        $request->fotoktp = $imageName;
+        
+        if ($request->hasFile('fotoktp')) {
+            $filenameWithExt = $request->file('fotoktp')->getClientOriginalName();
+            // Get Filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just Extension
+            $extension = $request->file('fotoktp')->getClientOriginalExtension();
+            // Filename To store
+            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+            // Upload Image
+            $path = $request->file('fotoktp')->storeAs('public/images', $fileNameToStore);
+        }
 
         Ticket::create($validatedData);
         return redirect()->route('ticket.show')->with('tambah_data', 'Penambahan Pengguna berhasil');
@@ -73,7 +82,8 @@ class TicketController extends Controller
         //$data = Ticket::where('id', $id)->first();
         $data = Ticket::all();
         return view('hasil', [
-            'data' => $data
+            'data' => $data,
+            'price'=> $data->pricelists_id,
         ]);
     }
 }
