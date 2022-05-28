@@ -34,3 +34,10 @@
     color          :black;
     text-decoration: none;
 }
+.btn {
+    font-size: 1.3em;
+    width: 40%;
+    background-image: linear-gradient(to left, #c20e4a, #7f0a85) !important;
+    color: whitesmoke;
+    border: 2px solid #ed06ce !important;
+}

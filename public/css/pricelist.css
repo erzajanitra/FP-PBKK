@@ -34,11 +34,11 @@
     padding-top: 4%;
     color: white;
 }
-.price {
+.btn {
     font-size: 1.3em;
     width: 40%;
-    background-image: linear-gradient(to left, #515689, #16dcbb);
+    background-image: linear-gradient(to left, #515689, #16dcbb) !important;
     color: whitesmoke;
-    border: 2px solid #081148;
+    border: 2px solid #081148 !important;
     margin: auto;
 }

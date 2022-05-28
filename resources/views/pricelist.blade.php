@@ -31,7 +31,7 @@
                 <details>
                     <summary class="listharga" style="margin-bottom: 1%;">{{ $pricelist->name }}</summary>
                     <div class="content"><h2>{{ $pricelist->description }}</h2>
-                    <p class="price">Rp. {{ $pricelist->price }}</p>
+                    <p class="btn">Rp. {{ $pricelist->price }}</p>
                 </details>
             </div>
             @endforeach

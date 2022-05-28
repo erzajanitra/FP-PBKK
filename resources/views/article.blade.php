@@ -5,12 +5,11 @@
 @section('container')
     {{-- Css --}}
     <link rel="stylesheet" href="/css/style.css">
-    {{-- Font Poppins --}}
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/article.css">
+    {{-- Font Poppins --}}
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     
     <div class="header">
         <h1 style="padding-top: 5%; font-family: Poppins;"><center><b>{{ $title }}</b></center></h1>
