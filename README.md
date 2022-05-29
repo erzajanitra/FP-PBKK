@@ -646,12 +646,17 @@ Implementasi Laravel Session terdapat pada Controller, yaitu ConfirmablePassword
     ```  
     Event dan Listener diatas digunakan untuk menangani user login dengan menyimpan log dari event yang sedang terjadi. Event tersebut terdiri dari melakukan register sebagai user, ketika user berhasil ataupun gagal melakukan login, validasi akun, verifikasi akun, logout dari akun, dan reset password. Semua Event tersebut dapat berfungsi jika dilengkapi dengan Listener yang sesuai. 
 * Semua Listener tersebut terdapat pada path ```app\Listeners```
-<img width="200" alt="event listener" src="https://user-images.githubusercontent.com/75319371/170856227-49100dd6-f58b-4dd5-848d-1d15540ca33c.png">
+    <img width="200" alt="event listener" src="https://user-images.githubusercontent.com/75319371/170856227-49100dd6-f58b-4dd5-848d-1d15540ca33c.png">
 
 ## Laravel Composer Package  
-**Laravel Composer Package**  
-    ```php  
-    
-    ```  
+Pada Laravel Composer Package, kami menggunakan **Laravel Breeze** untuk fitur autentikasi login, registrasi, reset password, verifikasi email, dan konfirmasi password. Composer digunakan untuk menginstall Laravel Breeze Package yang telah memiliki views, routes, controllers, dan hal yang dibutuhkan untuk beberapa fitur yang dimiliki. Berikut adalah tampilan halaman Login dan Register dari penggunaan Laravel Breeze
+* Halaman Login
+    <img width="909" alt="login" src="https://user-images.githubusercontent.com/75319371/170857549-71f37802-e28f-42bb-a22f-f59160c82ac0.png">
+
+* Halaman Register
+
+    <img width="839" alt="register" src="https://user-images.githubusercontent.com/75319371/170857553-dd1e16d0-b219-45a9-994a-4bff6090b4b6.png">
+
+   
 # Rerensi 
 * Install Alert: https://realrashid.github.io/sweet-alert/
