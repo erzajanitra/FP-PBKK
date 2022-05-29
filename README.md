@@ -457,7 +457,7 @@
     
     ```  
 ## Laravel Authentication and Authorization  
-**Laravel Authentication**  
+Laravel Authentication and Authorization digunakan untuk menangani user yang ingin login ke akun pada halaman login dan membuat akun baru pada halaman register. </br>
 * Implementasi untuk Laravel Authentication terletak pada path ```app\Http\Controllers\Auth```, dimana pada folder Auth terdapat beberapa scripts yang digunakan untuk menangani autentikasi ketika user melakukan login. 
 </br>Berikut adalah beberapa script tersebut :
 [app\Http\Controllers\Auth](https://github.com/erzajanitra/FP-PBKK/tree/5dc9465e8a896ea3e293fef5d245ccee2ab86ac9/app/Http/Controllers/Auth)
@@ -506,19 +506,33 @@
         return redirect('/');
     }
     ```
-**Laravel Authorization**  
-    ```php  
-    
-    ```  
+  
 ## Laravel Localization and File Storage  
-**Laravel Localization**  
+Laravel Localization and File Storage digunakan untuk menyimpan foto pada halaman Ticket Reservations. Pada halaman tersebut, user akan menginput beberapa data yang dibutuhkan untuk pembelian tiket dan mengupload foto KTP. Supaya foto KTP dapat tampil di halaman berikutnya, yaitu halaman bukti pembelian tiket, maka butuh dilakukan penyimpanan foto pada Storage.
+* Penyimpanan foto pada storage </br>
+  Penyimpanan foto terletak pada path ```app\Http\Controllers\TicketController.php```
     ```php  
-    
-    ```  
-**Laravel File Storage**  
-    ```php  
-    
-    ```  
+    if ($request->hasFile('fotoktp')) {
+            $filenameWithExt = $request->file('fotoktp')->getClientOriginalName();
+            // Get Filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just Extension
+            $extension = $request->file('fotoktp')->getClientOriginalExtension();
+            // Filename To store
+            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+            // Upload Image
+            $path = $request->file('fotoktp')->storeAs('public/images', $fileNameToStore);
+        }
+    ``` 
+ * Menampilkan foto yang telah disimpan pada storage </br>
+   Foto yang telah disimpan pada storage akan ditampilkan pada halaman bukti pembelian tiket, dimana halaman tersebut terletak pada ```resource\views\hasil.blade.php```. 
+   ```php 
+     <tr>
+        <td style="width:150px">Foto KTP</td>
+        <td><img src="{{ asset('storage/images/'. $data->fotoktp) }}" alt="" width="200px"></td>
+     </tr>
+   ``` 
+
 ## Laravel View and Blade Component  
 **Laravel View**  
 * Laravel View terletak pada path ```resource\views```
