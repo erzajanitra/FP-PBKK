@@ -218,58 +218,74 @@
     namespace App\Http\Controllers;
 
     use App\Http\Controllers\Controller;
+    use App\Models\Pricelist;
     use Illuminate\Http\Request;
     use RealRashid\SweetAlert\Facades\Alert;
+    use Illuminate\Support\Facades\DB;
+    use App\Models\Ticket;
 
 
     class TicketController extends Controller
     {
-         public function index(){
-        $data = Pricelist::all();
-        return view('ticket', [
-            'data' => $data
-        ]);
-    }
-    public function create()
-    {
-        $data = Ticket::All();
-        return view('ticket', [
-            'data' => $data,
-        ]);
-    }
-    public function store(Request $request)
-    {
-        Alert::success('Pesan Terkirim!', 'Terima kasih sudah melakukan Reservation Ticket Bromo Adventure 2022!');
-        $validatedData = $request->validate([
-            // 'namawisata' => 'required|min:8|max:50',
-            // 'harga' => 'required|numeric',
-            'nama' => 'required|min:8|max:50',
-            'jeniskelamin' => 'required|max:1',
-            'noktp' => 'required|numeric',
-            'alamat' => 'required|min:8|max:100',
-            'notelp' => 'required|numeric',
-            'fotoktp' => 'required|mimes:png,jpg,jpeg|max:2048',
-        ]);
-        
-        if ($request->hasFile('fotoktp')) {
-            $validatedData['fotoktp'] = $request->file('fotoktp')->store('public/images');
+        //
+        public function index()
+        {
+            // get all data from Ticket table
+            $data = Pricelist::all();
+            return view('ticket', [
+                'data' => $data
+            ]);
+            // $ticket = Ticket::all();
+            // return view('ticket');
+        }
+        public function create()
+        {
+            $data = Ticket::All();
+            // $price = Pricelist::find($data->pricelists_id);
+            return view('ticket', [
+                'data' => $data,
+                // 'price' => $price,
+            ]);
+        }
+        // return view('ticket');
+
+
+        public function store(Request $request)
+        {
+            Alert::success('Pesan Terkirim!', 'Terima kasih sudah melakukan Reservation Ticket Bromo Adventure 2022!');
+            $validatedData = $request->validate([
+                // 'namawisata' => 'required|min:8|max:50',
+                // 'harga' => 'required|numeric',
+                'nama' => 'required|min:8|max:50',
+                'jeniskelamin' => 'required|max:1',
+                'noktp' => 'required|numeric',
+                'alamat' => 'required|min:8|max:100',
+                'notelp' => 'required|numeric',
+                'fotoktp' => 'required|mimes:png,jpg,jpeg|max:2048',
+            ]);
+
+            if ($request->hasFile('fotoktp')) {
+                $validatedData['fotoktp'] = $request->file('fotoktp')->store('public/images');
+
+
+            }
+
+            Ticket::create($validatedData);
+            return redirect()->route('ticket.show')->with('tambah_data', 'Penambahan Pengguna berhasil');
+            // return view('hasil', ['data' => $request]);
         }
 
-        Ticket::create($validatedData);
-        return redirect()->route('ticket.show')->with('tambah_data', 'Penambahan Pengguna berhasil');
-    }
-
-    public function show()
-    {
-        // Problem
-        //$data = Ticket::where('id', $id)->first();
-        $data = Ticket::all();
-        $price = Pricelist::all();
-        return view('hasil', [
-            'data' => $data,
-            'price'=> $price,
-        ]);
-    }
+        public function show()
+        {
+            // Problem
+            //$data = Ticket::where('id', $id)->first();
+            $data = Ticket::all();
+            $price = Pricelist::all();
+            return view('hasil', [
+                'data' => $data,
+                'price'=> $price,
+            ]);
+        }
     }
     ```
 **Laravel Middleware**  
@@ -307,27 +323,30 @@
     ```php  
     use App\Http\Controllers\Controller;
     use Illuminate\Http\Request;
-     public function store(Request $request)
-    {
-        Alert::success('Pesan Terkirim!', 'Terima kasih sudah melakukan Reservation Ticket Bromo Adventure 2022!');
-        $validatedData = $request->validate([
-            'nama' => 'required|min:8|max:50',
-            'jeniskelamin' => 'required|max:1',
-            'noktp' => 'required|numeric',
-            'alamat' => 'required|min:8|max:100',
-            'notelp' => 'required|numeric',
-            'fotoktp' => 'required|mimes:png,jpg,jpeg|max:2048',
-        ]);
-        
-        if ($request->hasFile('fotoktp')) {
-            $validatedData['fotoktp'] = $request->file('fotoktp')->store('public/images');
+    public function store(Request $request)
+        {
+            Alert::success('Pesan Terkirim!', 'Terima kasih sudah melakukan Reservation Ticket Bromo Adventure 2022!');
+            $validatedData = $request->validate([
+                // 'namawisata' => 'required|min:8|max:50',
+                // 'harga' => 'required|numeric',
+                'nama' => 'required|min:8|max:50',
+                'jeniskelamin' => 'required|max:1',
+                'noktp' => 'required|numeric',
+                'alamat' => 'required|min:8|max:100',
+                'notelp' => 'required|numeric',
+                'fotoktp' => 'required|mimes:png,jpg,jpeg|max:2048',
+            ]);
 
-            
+            if ($request->hasFile('fotoktp')) {
+                $validatedData['fotoktp'] = $request->file('fotoktp')->store('public/images');
+
+
+            }
+
+            Ticket::create($validatedData);
+            return redirect()->route('ticket.show')->with('tambah_data', 'Penambahan Pengguna berhasil');
+            // return view('hasil', ['data' => $request]);
         }
-
-        Ticket::create($validatedData);
-        return redirect()->route('ticket.show')->with('tambah_data', 'Penambahan Pengguna berhasil');
-    }
     ```  
 **Laravel Validation**  
 * Laravel Validation terletak pada path ```resource\views\ticket.blade.php```, ```resource\views\hasil.blade.php``` dan ```routes\web.php```
@@ -340,74 +359,117 @@
     <!DOCTYPE html>
     <html lang="en">
     <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ticket Reservation</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Bromo's | Ticket Reservation</title>
 
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-    {{-- Font Style --}}
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    {{-- CSS --}}
-    <link rel="stylesheet" href="/css/style.css">
+        <!-- bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+        {{-- Font Style --}}
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+        {{-- CSS --}}
+        <link rel="stylesheet" href="/css/style.css">
     </head>
+    <div style="background-image: linear-gradient(to left,  #ff6666, #e18080, #cd4c4c); color: white;" class="col-md-12 pt-4 pb-1">
+        <marquee behavior="" direction="left">
+            <h6 style="color: white;" class="my-auto">
+                 <b style="color: white"> Mohon untuk mengisi biodata Ticket Reservation Bromo Adventure 2022 dengan benar dan teliti! </b>
+            </h6>
+        </marquee>
+    </div>
     <body style="font-family: Poppins; color:white; background-color: white; padding-top:50px; ">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="card mt-5">
-                        <div class="card-body">
-                            <p style="text-align: center"><img src="/img/bromo.jpg" alt="Logo Bromo" width="200px" style="border-radius: 30%; box-shadow: 10px 10px 10px rgb(92, 91, 91);"></p>
-                            <h3 class="text-center" style="font-weight: bold; padding-top: 5%;">Ticket Reservation Bromo Adventure 2022</h3>
-                            <br/>
-                                @if (count($errors) > 0)
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                                @endif
-                            <br/>
-                             <!-- form hasil -->
-                            <form action="/hasil" method="post" enctype="multipart/form-data" style="font-size: 1.2em">
-                                {{ csrf_field() }}
-                                <div class="form-group">
-                                    <label for="nama">Nama Lengkap</label>
-                                    <input class="form-control" type="text" name="nama" value="{{ old('nama') }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="jeniskelamin">Jenis Kelamin (L/P)</label>
-                                    <input class="form-control" type="text" name="jeniskelamin" value="{{ old('jeniskelamin') }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="alamat">Alamat Lengkap</label>
-                                    <input class="form-control" type="text" name="alamat" value="{{ old('alamat') }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="noktp">Nomor KTP</label>
-                                    <input class="form-control" type="text" name="noktp" value="{{ old('noktp') }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="foto">Foto KTP</label>
-                                    <input type="file" class="form-control-file" id="fotoktp" name="fotoktp" accept="image/png, image/jpg, image/jpeg">
-                                </div>
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1" >Tolong diteliti kembali, lalu dicentang!</label>
-                                </div>
-                                <div class="form-group" style="text-align: center;">
-                                    <input class="btn btn-primary" type="submit" style="font-weight: bold" value="Kirim">
-                                </div>
-                            </form>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="card mt-5">
+                            <div class="card-body">
+                                <p style="text-align: center"><img src="/img/bromo.jpg" alt="Logo Bromo" width="200px" style="border-radius: 30%; box-shadow: 10px 10px 10px rgb(92, 91, 91);"></p>
+                                <h3 class="text-center" style="font-weight: bold; padding-top: 5%;">Ticket Reservation Bromo Adventure 2022</h3>
+                                <br/>
+                                    @if (count($errors) > 0)
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                    @endif
+                                <br/>
+                                 <!-- form hasil -->
+                                 <form action="{{ route('ticket.buat-data') }}" method="post" enctype="multipart/form-data" style="font-size: 1.2em">
+                                    {{ csrf_field() }}
+                                    <div class="form-group">
+                                        <label for="namawisata">Pilih Paket Wisata</label>
+                                        <input class="form-control" type="text" name="namawisata" value="{{ old('namawisata') }}" list="nama-list">
+                                        <datalist id="nama-list">
+                                            @foreach ($data as $d)
+                                                <option data-value="{{ $d->id }}">{{ $d->name}}</option>
+                                            @endforeach
+                                        </datalist>
+                                    </div>
+                                    {{-- <div class="form-group">
+                                        <label for="harga">Harga Ticket</label>
+                                        <input class="form-control" type="text" name="harga" value="{{ old('harga') }}" list="nama-list-harga">
+                                        <datalist id="nama-list-harga">
+                                            @foreach ($data as $d)
+                                                <option data-value="{{ $d->id }}">{{ $d->price}}</option>
+                                            @endforeach
+                                        </datalist>
+                                    </div> --}}
+                                    {{-- <div class="form-group">
+                                        <label for="nama">Nama Lengkap</label>
+                                        <input class="form-control" type="text" name="nama" value="{{ old('nama') }}" list="nama-list">
+                                        <datalist id="nama-list">
+                                            @foreach ($data as $d)
+                                                <option data-value="{{ $d->id }}">{{ $d->nama }}</option>
+                                            @endforeach
+                                        </datalist>
+                                    </div> --}}
+                                    <div class="form-group">
+                                        <label for="nama">Nama Lengkap</label>
+                                        <input class="form-control" type="text" name="nama" value="{{ old('nama') }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="jeniskelamin">Jenis Kelamin (L/P)</label>
+                                        <input class="form-control" type="text" name="jeniskelamin" value="{{ old('jeniskelamin') }}" list="jk-list">
+                                        <datalist id="jk-list">
+                                            @foreach ($data as $d)
+                                                <option data-value="{{ $d->id }}">{{ $d->jeniskelamin }}</option>
+                                            @endforeach
+                                        </datalist>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="alamat">Alamat Lengkap</label>
+                                        <input class="form-control" type="text" name="alamat" value="{{ old('alamat') }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="noktp">Nomor KTP</label>
+                                        <input class="form-control" type="text" name="noktp" value="{{ old('noktp') }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="notelp">Nomor Telepon</label>
+                                        <input class="form-control" type="text" name="notelp" value="{{ old('notelp') }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="foto">Foto KTP</label>
+                                        <input type="file" class="form-control-file" id="fotoktp" name="fotoktp" accept="image/png, image/jpg, image/jpeg">
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        <label class="form-check-label" for="exampleCheck1" >Tolong diteliti kembali, lalu dicentang!</label>
+                                    </div>
+                                    <div class="form-group" style="text-align: center;">
+                                        <input class="btn btn-primary" type="submit" style="font-weight: bold" value="Kirim">
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </body>
+        </body>
     </html>
     ```  
     * Pada path ```resource\views\hasil.blade.php```
@@ -419,60 +481,76 @@
     <!DOCTYPE html>
     <html lang="en">
     <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ticket Reservation</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Bromo's | Ticket Reservation</title>
 
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-    {{-- Font Style --}}
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    {{-- CSS --}}
-    <link rel="stylesheet" href="/css/style.css">
+        <!-- bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+        {{-- Font Style --}}
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+        {{-- CSS --}}
+        <link rel="stylesheet" href="/css/style.css">
     </head>
-    <div style="background: #cd4c4c;color: white;" class="col-md-12 pt-2 pb-2">
-    <marquee behavior="" direction="left">
-        <h6 style="color: white;" class="my-auto">
-             <b style="color: white"> Mohon untuk menyimpan bukti Reservation Ticket Bromo 2022 dengan cara mencapture (ScreenShot) ticket </b>
-        </h6>
-    </marquee>
+    <div style="background-image: linear-gradient(to left, #ff6666, #e18080, #cd4c4c); color: white;" class="col-md-12 pt-1 pb-1">
+        <marquee behavior="" direction="left">
+            <h6 style="color: white;" class="my-auto">
+                 <b style="color: white"> Mohon untuk menyimpan bukti Reservation Ticket Bromo 2022 dengan cara mencapture (ScreenShot) ticket </b>
+            </h6>
+        </marquee>
     </div>
     <body style="font-family: Poppins; color:white; background-color: white; padding-top: 5%; ">
-    <div class="container" >
-        <div class="row justify-content-center">
-                <div class="col-lg-6">
-                <div class="card mt-5">
-                    <div class="card-body">
-                        <p style="text-align: center"><img src="/img/bromo.jpg" alt="Logo Bromo" width="200px" style="border-radius: 30%; box-shadow: 10px 10px 10px rgb(92, 91, 91);"></p>
-                        <h3 class="text-center" style="font-weight: bold;">Ticket Reservation Bromo Adventure 2022</h3>
-                        <table class="table table-bordered table-striped" style="font-size: 1.2em">
-                            <tr>
-                                <td style="width:150px">Nama</td>
-                                <td>{{ $data->nama }}</td>
-                            </tr>
-                            <tr>
-                                <td style="width:200px">Jenis Kelamin (L/P)</td>
-                                <td>{{ $data->jeniskelamin}}</td>
-                            </tr>
-                            <tr>
-                                <td style="width:150px">Alamat Lengkap</td>
-                                <td>{{ $data->alamat }}</td>
-                            </tr>
-                            <tr>
-                                <td style="width:150px">Nomor KTP</td>
-                                <td>{{ $data->noktp }}</td>
-                            </tr>
-                                <td style="width:150px">Foto KTP</td>
-                                <td><img src="{{ $data->fotoktp }}" alt="" width="200px"></td>
-                            </tr>
-                        </table>
-                        <p style="text-align: center"><a href="/ticket" class="btn btn-primary" style="text-align: center" >Kembali</a></p>
+        <div class="container" >
+            <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                    <div class="card mt-5">
+                        <div class="card-body">
+                            <p style="text-align: center"><img src="/img/bromo.jpg" alt="Logo Bromo" width="200px" style="border-radius: 30%; box-shadow: 10px 10px 10px rgb(92, 91, 91);"></p>
+                            <h3 class="text-center" style="font-weight: bold;">Ticket Trip to Bromo Adventure 2022</h3>
+                            <table class="table table-bordered table-striped" style="font-size: 1.2em">
+                                @foreach ( $data as $data )
+                                <tr>
+                                    <td style="width:150px">Paket Wisata</td>
+                                    <td>{{ $data->name }}</td>
+                                </tr>
+                                {{-- <tr>
+                                    <td style="width:200px">Harga Ticket</td>
+                                    <td>{{ $data->harga}}</td>
+                                </tr> --}}
+                                <tr>
+                                    <td style="width:150px">Nama</td>
+                                    <td>{{ $data->nama }}</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:200px">Jenis Kelamin (L/P)</td>
+                                    <td>{{ $data->jeniskelamin}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:150px">Alamat Lengkap</td>
+                                    <td>{{ $data->alamat }}</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:150px">Nomor KTP</td>
+                                    <td>{{ $data->noktp }}</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:150px">Nomor Telepon</td>
+                                    <td>{{ $data->notelp }}</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:150px">Foto KTP</td>
+                                    <td><img src="{{ asset('storage/'. $data->fotoktp) }}" alt="" width="200px"></td>
+                                </tr>
+                                @endforeach
+                            </table>
+
+                            <p style="text-align: center"><a href="/ticket" class="btn btn-primary" style="text-align: center" >Kembali</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </body>
     @include('sweetalert::alert')
     </html> 
@@ -536,7 +614,7 @@
 ## Laravel Model, Eloquent and Query Builder  
 **Laravel Model**  
 * Laravel model terletak pada path ```app\Models\```  
-    * Terdapat beberapa model yang sudah kami buat, yaitu bernama ```Article```, ```Post```,```Price List```, dan ```Ticket```.  
+    * Terdapat beberapa model yang sudah kami buat, yaitu bernama ```Article```, ```Post```,```Pricelist```, dan ```Ticket```.  
 ![models.png](https://drive.google.com/uc?export=view&id=1myTHxx0tQoC2AkYeesMnR6aygqbMknda)  
 
 **Laravel Eloquent**  
