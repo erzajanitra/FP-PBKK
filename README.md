@@ -993,7 +993,8 @@ Laravel Localization and File Storage digunakan untuk menyimpan foto pada halama
 **Laravel View**  
 * Laravel View terletak pada path ```resource\views```
     * Didalam path diatas terdapat beberapa folder yang kami buat, yaitu ```layouts``` dan ada beberapa tambahan otomatis ketika menginstal allert yaitu ```vendor``` dan ketika membuat menu ```login```, yaitu folder ```auth``` dan ```components```.
-![views.png](https://drive.google.com/uc?export=view&id=1zLlmvBCnFbHPL7J6__r-OekVdtJOj08J)
+![views.png](https://drive.google.com/uc?export=view&id=1zLlmvBCnFbHPL7J6__r-OekVdtJOj08J)  
+
 **Laravel Blade Component**  
 * Laravel Blade terletak pada path ```resource\views```, dimana didalam ```view``` tersebut nama file harus diakhir dengan ```blade.php``` dapat menggunakan templating engine Laravel yaitu ```Blade```. 
     * Pada folder ```auth```
@@ -1044,13 +1045,13 @@ Implementasi Laravel Session terdapat pada Controller, yaitu ConfirmablePassword
     ```  
 
 ## Laravel Unit Testing and Feature Testing  
-* Laravel Unit Testing 
+**Laravel Unit Testing** 
     * Membuat testing dengan nama file ```.env.testing``` dan membuat unit testing dengan syntax dibawah ini:  
     ```php  
     php artisan make:test Post/PostControllerTest --unit
     ```  
 ![feature.png](https://drive.google.com/uc?export=view&id=1QlEWYxbs1adnpOLHj7OCx1nTgLvYWAQ9)
-* Laravel Feature Testing
+**Laravel Feature Testing**
     * Laravel Feature Testing Terletak pada path ```test\Feature\PostTest.php```.  
 ![unit.png](https://drive.google.com/uc?export=view&id=1KsPe57hYu6wdugqIZbo0-TqF39BbUnJr)
     * Mencoba untuk menjalankan file ```test```.  
