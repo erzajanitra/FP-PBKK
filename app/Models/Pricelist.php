@@ -10,7 +10,7 @@ class Pricelist extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
-    public function ticket(){
+    public function tickets(){
         return $this->hasMany(Ticket::class);
     }
 }
