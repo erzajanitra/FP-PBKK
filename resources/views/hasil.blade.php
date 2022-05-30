@@ -36,7 +36,7 @@
                             @foreach ( $data as $data )
                             <tr>
                                 <td style="width:150px">Paket Wisata</td>
-                                <td>{{ $data->namawisata }}</td>
+                                <td>{{ $data->name }}</td>
                             </tr>
                             {{-- <tr>
                                 <td style="width:200px">Harga Ticket</td>
@@ -64,7 +64,7 @@
                             </tr>
                             <tr>
                                 <td style="width:150px">Foto KTP</td>
-                                <td><img src="{{ asset('storage/images/'. $data->fotoktp) }}" alt="" width="200px"></td>
+                                <td><img src="{{ asset('storage/'. $data->fotoktp) }}" alt="" width="200px"></td>
                             </tr>
                             @endforeach
                         </table>

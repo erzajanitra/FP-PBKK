@@ -50,40 +50,25 @@ class TicketController extends Controller
         ]);
         
         if ($request->hasFile('fotoktp')) {
-            $filenameWithExt = $request->file('fotoktp')->getClientOriginalName();
-            // Get Filename
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            // Get just Extension
-            $extension = $request->file('fotoktp')->getClientOriginalExtension();
-            // Filename To store
-            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
-            // Upload Image
-            $path = $request->file('fotoktp')->storeAs('public/images', $fileNameToStore);
+            $validatedData['fotoktp'] = $request->file('fotoktp')->store('public/images');
+
+            
         }
 
         Ticket::create($validatedData);
         return redirect()->route('ticket.show')->with('tambah_data', 'Penambahan Pengguna berhasil');
         // return view('hasil', ['data' => $request]);
     }
-    // public function saveFoto(Request $request, $id)
-    // {
-    //     $foto = $request->ktm; // typedata : file
-    //     $foto_name = ''; // typedata : string
-    //     if ($foto !== NULL) {
-    //         $foto_name = 'foto' . '-' . $id . "." . $foto->extension(); // typedata : string
-    //         $foto_name = str_replace(' ', '-', strtolower($foto_name)); // typedata : string
-    //         $foto->storeAs(null, $foto_name, ['disk' => 'public']); // memanggil function untuk menaruh file di storage
-    //     }
-    //     return asset('storage') . '/' . $foto_name; // me return path/to/file.ext
-    // }
+
     public function show()
     {
         // Problem
         //$data = Ticket::where('id', $id)->first();
         $data = Ticket::all();
+        $price = Pricelist::all();
         return view('hasil', [
             'data' => $data,
-            'price'=> $data->pricelists_id,
+            'price'=> $price,
         ]);
     }
 }
