@@ -531,16 +531,311 @@
     ```  
 ## Laravel Model, Eloquent and Query Builder  
 **Laravel Model**  
-    ```php  
-    
-    ```  
+* Laravel model terletak pada path ```app\Models\```  
+    * Terdapat beberapa model yang sudah kami buat, yaitu bernama ```Article```, ```Post```,```Price List```, dan ```Ticket```.  
+![models.png](https://drive.google.com/uc?export=view&id=1myTHxx0tQoC2AkYeesMnR6aygqbMknda)
 **Laravel Eloquent**  
+* Terkait Laravel Eloquent, kami telah membuatnya dan terletak pada controller yaitu pada path ```App\Http\Controllers```.  
+    * Eloquent pada ```Article Controller```.  
     ```php  
-    
+    <?php
+
+    namespace App\Http\Controllers;
+    use App\Models\Article;
+    use Illuminate\Http\Request;
+
+    class ArticleController extends Controller
+    {
+        public function index(){
+            return view('article', [
+                "title" => "Artikel Wisata Bromo",
+                "articles" => Article::all()
+            ]);
+        }
+
+        public function detail(Article $article){
+            return view('article-detail', [
+                "article" => $article
+            ]);
+        }
+    }
+    ```  
+    * Eloquent pada ```Post Controller```.  
+    ```php  
+    <?php
+
+    namespace App\Http\Controllers;
+
+    use Illuminate\Http\Request;
+    use Illuminate\Support\Facades\Auth;
+    use App\Models\Post;
+    use Illuminate\Support\Facades\Gate;
+
+    class PostController extends Controller
+    {
+        //
+        public function index()
+        {
+            $posts = Post::all();
+
+            return view('post', ['posts' => $posts]); 
+        }
+
+        /**
+         * Show the form for creating a new resource.
+         *
+         * @return \Illuminate\Http\Response
+         */
+        public function create()
+        {
+            $this->authorize('create', Post::class);
+
+            return view('post-detail', ['msg' => 'User can create post']); 
+        }
+
+        /**
+         * Store a newly created resource in storage.
+         *
+         * @param  \Illuminate\Http\Request  $request
+         * @return \Illuminate\Http\Response
+         */
+        public function store(Request $request)
+        {
+            //
+        }
+
+        /**
+         * Display the specified resource.
+         *
+         * @param  int  $id
+         * @return \Illuminate\Http\Response
+         */
+        public function show($id)
+        {
+            //
+        }
+
+        /**
+         * Show the form for editing the specified resource.
+         *
+         * @param  int  $id
+         * @return \Illuminate\Http\Response
+         */
+        public function edit($id)
+        {
+            $user = Auth::user();
+            $post = Post::find($id);
+
+            // // menggunakan model user
+            // if ($user && $user->can('update', $post)) {
+            //     return view('post-detail', ['msg' => 'User can edit post']); 
+            // }else{
+            //     abort(403);
+            // }
+
+            // menggunakan response
+            $response = Gate::inspect('update', $post);
+
+            if ($response->allowed()) {
+                return view('post-detail', ['msg' => 'User can edit post']); 
+            } else {
+                echo $response->message();
+            }
+        }
+
+        /**
+         * Update the specified resource in storage.
+         *
+         * @param  \Illuminate\Http\Request  $request
+         * @param  int  $id
+         * @return \Illuminate\Http\Response
+         */
+        public function update(Request $request, $id)
+        {
+            //
+        }
+
+        /**
+         * Remove the specified resource from storage.
+         *
+         * @param  int  $id
+         * @return \Illuminate\Http\Response
+         */
+        public function destroy(Post $post)
+        {
+            return view('post-detail', ['msg' => 'user can delete post']); 
+        }
+
+    }
+    ```  
+    * Eloquent pada ```Pricelist Controller```.  
+    ```php  
+    <?php
+
+    namespace App\Http\Controllers;
+    use App\Models\Pricelist;
+    use Illuminate\Http\Request;
+
+    class PricelistController extends Controller
+    {
+        public function index(){
+            return view('pricelist', [
+                "pricelists" => Pricelist::all()
+            ]);
+        }
+    }
+    ```  
+    * Eloquent pada ```Ticket Controller```.  
+    ```php  
+    <?php
+
+    namespace App\Http\Controllers;
+
+    use App\Http\Controllers\Controller;
+    use App\Models\Pricelist;
+    use Illuminate\Http\Request;
+    use RealRashid\SweetAlert\Facades\Alert;
+    use Illuminate\Support\Facades\DB;
+    use App\Models\Ticket;
+
+
+    class TicketController extends Controller
+    {
+        //
+        public function index()
+        {
+            // get all data from Ticket table
+            $data = Ticket::all();
+            return view('ticket', [
+                'data' => $data
+            ]);
+            // $ticket = Ticket::all();
+            // return view('ticket');
+        }
+        public function create()
+        {
+            $data = Ticket::All();
+            // $price = Pricelist::find($data->pricelists_id);
+            return view('ticket', [
+                'data' => $data,
+                // 'price' => $price,
+            ]);
+        }
+        // return view('ticket');
+
+
+        public function store(Request $request)
+        {
+            Alert::success('Pesan Terkirim!', 'Terima kasih sudah melakukan Reservation Ticket Bromo Adventure 2022!');
+            $validatedData = $request->validate([
+                // 'namawisata' => 'required|min:8|max:50',
+                // 'harga' => 'required|numeric',
+                'nama' => 'required|min:8|max:50',
+                'jeniskelamin' => 'required|max:1',
+                'noktp' => 'required|numeric',
+                'alamat' => 'required|min:8|max:100',
+                'notelp' => 'required|numeric',
+                'fotoktp' => 'required|mimes:png,jpg,jpeg|max:2048',
+            ]);
+
+            if ($request->hasFile('fotoktp')) {
+                $filenameWithExt = $request->file('fotoktp')->getClientOriginalName();
+                // Get Filename
+                $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+                // Get just Extension
+                $extension = $request->file('fotoktp')->getClientOriginalExtension();
+                // Filename To store
+                $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+                // Upload Image
+                $path = $request->file('fotoktp')->storeAs('public/images', $fileNameToStore);
+            }
+
+            Ticket::create($validatedData);
+            return redirect()->route('ticket.show')->with('tambah_data', 'Penambahan Pengguna berhasil');
+            // return view('hasil', ['data' => $request]);
+        }
+        // public function saveFoto(Request $request, $id)
+        // {
+        //     $foto = $request->ktm; // typedata : file
+        //     $foto_name = ''; // typedata : string
+        //     if ($foto !== NULL) {
+        //         $foto_name = 'foto' . '-' . $id . "." . $foto->extension(); // typedata : string
+        //         $foto_name = str_replace(' ', '-', strtolower($foto_name)); // typedata : string
+        //         $foto->storeAs(null, $foto_name, ['disk' => 'public']); // memanggil function untuk menaruh file di storage
+        //     }
+        //     return asset('storage') . '/' . $foto_name; // me return path/to/file.ext
+        // }
+        public function show()
+        {
+            // Problem
+            //$data = Ticket::where('id', $id)->first();
+            $data = Ticket::all();
+            return view('hasil', [
+                'data' => $data,
+                'price'=> $data->pricelists_id,
+            ]);
+        }
+    }
     ```  
 **Laravel Query Builder**  
+* Pada Laravel Query Builder terdapat pada beberapa file ```PostController.php``` pada path ```app\Http\PostController.php```.  
+    * Menggunakan method ```Post```
     ```php  
-    
+     public function index()
+    {
+        $posts = Post::all();
+
+        return view('post', ['posts' => $posts]); 
+    }
+    ```  
+    * Menggunakan method ```Gate```
+    ```php  
+    public function edit($id)
+    {
+        $user = Auth::user();
+        $post = Post::find($id);
+
+        // // menggunakan model user
+        // if ($user && $user->can('update', $post)) {
+        //     return view('post-detail', ['msg' => 'User can edit post']); 
+        // }else{
+        //     abort(403);
+        // }
+
+        // menggunakan response
+        $response = Gate::inspect('update', $post);
+
+        if ($response->allowed()) {
+            return view('post-detail', ['msg' => 'User can edit post']); 
+        } else {
+            echo $response->message();
+        }
+    }
+    ```  
+* Pada Laravel Query Builder terdapat pada beberapa file ```HomeController.php``` pada path ```app\Http\HomeController.php```.  
+    * Menggunakan method ```Gate```
+    ```php  
+    public function private()
+    {
+        // 1. allows
+        if (Gate::allows('go-to-private')) {
+            return view('private');
+        }
+        return 'You are not admin!';
+    }
+    ```  
+    * Menggunakan method ```Gate```
+    ```php  
+    public function response()
+    {
+        $response = Gate::inspect('go-to-response');
+
+        if ($response->allowed()) {
+            return view('response', ['msg' => 'custom response']); 
+        } else {
+            echo $response->message();
+        }
+    }
     ```  
 ## Laravel Authentication and Authorization  
 Laravel Authentication and Authorization digunakan untuk menangani user yang ingin login ke akun pada halaman login dan membuat akun baru pada halaman register. </br>
