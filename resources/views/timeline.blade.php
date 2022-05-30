@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Time Line')
+@section('title', 'Timeline')
 
 <head>
     <meta charset="UTF-8">
