@@ -622,18 +622,18 @@ Laravel Localization and File Storage digunakan untuk menyimpan foto pada halama
 ## Laravel View and Blade Component  
 **Laravel View**  
 * Laravel View terletak pada path ```resource\views```
-    * Didalam path diatas terdapat beberapa folder yang kami buat, yaitu ```layouts``` dan ada beberapa tambahan otomatis ketike menginstal allert yaitu ```vendor``` dan ketika membuat menu ```login```, yaitu folder ```auth``` dan ```components```.
-![view.png](https://drive.google.com/uc?export=view&id=1HhnEw7uetxNEuFDfifpIqlWzikwhN2GC)
+    * Didalam path diatas terdapat beberapa folder yang kami buat, yaitu ```layouts``` dan ada beberapa tambahan otomatis ketika menginstal allert yaitu ```vendor``` dan ketika membuat menu ```login```, yaitu folder ```auth``` dan ```components```.
+![views.png](https://drive.google.com/uc?export=view&id=1zLlmvBCnFbHPL7J6__r-OekVdtJOj08J)
 **Laravel Blade Component**  
 * Laravel Blade terletak pada path ```resource\views```, dimana didalam ```view``` tersebut nama file harus diakhir dengan ```blade.php``` dapat menggunakan templating engine Laravel yaitu ```Blade```. 
     * Pada folder ```auth```
-![auth.png](https://drive.google.com/uc?export=view&id=1DYnWi5k-0205Y2TcwUIY295xCzb54vsZ)
+![auth.png](https://drive.google.com/uc?export=view&id=1HA_jbNRPg5sM_iYFp4pJt2Ais8OIW8VP)
     * Pada folder ```components```
-![components.png](https://drive.google.com/uc?export=view&id=1ipOPmIbCI7HUu6c2NiI-YuR1LthW9tjk)
+![components.png](https://drive.google.com/uc?export=view&id=1ThwaUR1jYQTAunJA4kwm0GUjtHn9fV7p)
     * Pada folder ```layouts```
-![layouts.png](https://drive.google.com/uc?export=view&id=1K2Usp9mY10Ui1r85gbIb91bJ-MkiuiP7)
+![layouts.png](https://drive.google.com/uc?export=view&id=1ajiXrPHzuKleMKQN8RqBuohLRUBM2U8D)
     * Pada folder ```vendor```
-![vendor.png](https://drive.google.com/uc?export=view&id=1B9RILuD5Wn17qDIhFGH6qB0ydeMEj2fs)
+![vendor.png](https://drive.google.com/uc?export=view&id=1lnvu3VCldiVX4ndabCnho6WCVG-uUJ3r)
 ## Laravel Session and Caching  
 **Laravel Session**  
 Implementasi Laravel Session terdapat pada Controller, yaitu ConfirmablePasswordController.php pada folder Auth ``app\Http\Controllers\Auth\ConfirmablePasswordController.php`` dan AuthController.php pada path ```app\Http\Controllers\AuthController.php```
