@@ -18,7 +18,7 @@ class ArticleFactory extends Factory
             'user_id' => mt_rand(1,2),
 			'slug' => $this->faker->unique()->slug(),
             'body' => $this->faker->paragraph(mt_rand(5,10)),
-			'excerpt' => $this->faker->sentence(mt_rand(10,25))
+			'excerpt' => $this->faker->sentence(mt_rand(8,15))
         ];
     }
 }
