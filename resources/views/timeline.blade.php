@@ -30,10 +30,17 @@
                     <p>Untuk penggunaan <b>required</b> sudah menggunakan Laravel route, controller and middleware, Laravel request, validation and response, Laravel model, eloquent and query builder, Laravel authentication and authorization, Laravel localization and file storage, Laravel view and blade component, Laravel session and caching, Laravel feature testing and unit testing. Selanjutnya untuk penggunaan <b>optional</b> sudah menggunakan Laravel event and listener dan Laravel composer package.</p>
                 </div>
             </div> --}}
+            <div class="container right">
+                <div class="content">
+                    <h2>19 Mei 2022 - 30 Juni 2022</h2>
+                    <p>Add & update readme <b>Required</b> & <b>Optional</b>.</p>
+                </div>
+            </div>
             <div class="container left">
                 <div class="content">
-                    <h2>19 Mei 2022 - 03 Juni 2022</h2>
-                    <p>Add readme <b>Required</b> & <b>Optional</b>.</p>
+                    <h2>19 Mei 2022 - 30 Juni 2022</h2>
+                    <p>Untuk penggunaan <b>required</b> sudah menggunakan Laravel route, controller and middleware, Laravel request, validation and response, Laravel model, eloquent and query builder, Laravel authentication and authorization, Laravel localization and file storage, Laravel view and blade component, Laravel session and caching, dan Laravel Unit Testing and Feature Testing. Selanjutnya untuk penggunaan <b>optional</b> sudah menggunakan Laravel event and listener dan Laravel composer package.
+                    </p>
                 </div>
             </div>
             <div class="container right">

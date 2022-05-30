@@ -14,7 +14,7 @@
     <div class="header">
         <h1 style="padding-top: 5%; font-family: Poppins;"><center><b>{{ $title }}</b></center></h1>
 
-        <hr style="height:5px;border-width:0;color:#1CE088;background-color:#1CE088">
+        <hr style="height:5px;border-width:0;color:black;background-color:#1CE088">
 
         <div class="row mg-t-40" style="font-family: Poppins;">
             @foreach($articles as $article)
@@ -25,9 +25,9 @@
                                 <div class="mb-0">{{ $article->title }}</div>
                             </a>
                         </h3>
-                        <h5>By: <a href="#" class="text-decoration-none" style="color:#01F9C6">{{ $article->user->name }}</a></h6>
+                        <h5>By: <a href="#" class="by text-decoration-none" style="color:white; font-weight:bold;">{{ $article->user->name }}</a></h6>
                         <p class="mb-0">{{ $article->excerpt }}</p>
-                        <a href="/article/{{ $article->slug }}" class="text-decoration-none" style="color:#01F9C6">Read more...</a>
+                        <a href="/article/{{ $article->slug }}" class="read text-decoration-none" style="color:black; font-weight:bold;">Read more...</a>
                     </div>
                 </div>
             @endforeach

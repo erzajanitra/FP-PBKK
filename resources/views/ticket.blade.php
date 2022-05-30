@@ -17,7 +17,7 @@
     {{-- CSS --}}
     <link rel="stylesheet" href="/css/style.css">
 </head>
-<div style="background-image: linear-gradient(to left,  #ff6666, #e18080, #cd4c4c); color: white;" class="col-md-12 pt-4 pb-1">
+<div style="background-image: linear-gradient(to right, #00ffed, #00b8ba); color: white;" class="col-md-12 pt-4 pb-1">
     <marquee behavior="" direction="left">
         <h6 style="color: white;" class="my-auto">
              <b style="color: white"> Mohon untuk mengisi biodata Ticket Reservation Bromo Adventure 2022 dengan benar dan teliti! </b>

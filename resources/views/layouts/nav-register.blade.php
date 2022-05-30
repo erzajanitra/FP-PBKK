@@ -9,6 +9,6 @@
         <li><a href="/article" class="nav-li">Article</a></li>
         <li><a href="/register" class="nav-li">Register</a></li>
         <li><a href="/aboutus" class="nav-li">About Us</a></li>
-        <li><a href="/timeline" class="nav-li">Time Line</a></li>
+        <li><a href="/timeline" class="nav-li">Timeline</a></li>
     </ul>
 </nav>
