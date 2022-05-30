@@ -1044,7 +1044,27 @@ Implementasi Laravel Session terdapat pada Controller, yaitu ConfirmablePassword
     ```  
 
 ## Laravel Unit Testing and Feature Testing  
- 
+* Laravel Unit Testing 
+    * Membuat testing dengan nama file ```.env.testing``` dan membuat unit testing dengan syntax dibawah ini:  
+    ```php  
+    php artisan make:test Post/PostControllerTest --unit
+    ```  
+![feature.png](https://drive.google.com/uc?export=view&id=1QlEWYxbs1adnpOLHj7OCx1nTgLvYWAQ9)
+* Laravel Feature Testing
+    * Laravel Feature Testing Terletak pada path ```test\Feature\PostTest.php```.  
+![unit.png](https://drive.google.com/uc?export=view&id=1KsPe57hYu6wdugqIZbo0-TqF39BbUnJr)
+    * Mencoba untuk menjalankan file ```test```.  
+    ```php  
+    php artisan test
+    ```  
+    
+![unit2.png](https://drive.google.com/uc?export=view&id=1wDeW_dyUXgRaBtxUcwmLEyo7BSxXgGGn)  
+    * Mencoba menjalankan file ```test``` pada ```dusk````.  
+    ```php  
+    php artisan dusk
+    ```  
+    
+![unit3.png](https://drive.google.com/uc?export=view&id=1ErKNLrssGZwh0pE8U1kda4JI7-jX8Of9)  
 # Optional:
 ## Laravel Event and Listener
 * Implementasi Event and Listener terletak pada path ```app\Providers\EventServiceProvider```. 
@@ -1108,12 +1128,12 @@ Implementasi Laravel Session terdapat pada Controller, yaitu ConfirmablePassword
 ## Laravel Composer Package  
 Pada Laravel Composer Package, kami menggunakan **Laravel Breeze** untuk fitur autentikasi login, registrasi, reset password, verifikasi email, dan konfirmasi password. Composer digunakan untuk menginstall Laravel Breeze Package yang telah memiliki views, routes, controllers, dan hal yang dibutuhkan untuk beberapa fitur yang dimiliki. Berikut adalah tampilan halaman Login dan Register dari penggunaan Laravel Breeze
 * Halaman Login
-    <img width="909" alt="login" src="https://user-images.githubusercontent.com/75319371/170857549-71f37802-e28f-42bb-a22f-f59160c82ac0.png">
+![login.png](https://drive.google.com/uc?export=view&id=1-G8TxQKReNJZhU2NZBXyZGpdyXtCwvZ8)
 
 * Halaman Register
-
-    <img width="839" alt="register" src="https://user-images.githubusercontent.com/75319371/170857553-dd1e16d0-b219-45a9-994a-4bff6090b4b6.png">
+![register.png](https://drive.google.com/uc?export=view&id=15_iZCIfds2fAVGiAKNDf81khAjfhQnC8)
 
    
 # Rerensi 
 * Install Alert: https://realrashid.github.io/sweet-alert/
+* Referensi Laravel Unit Testing and Feature Testing: https://laravel.com/docs/8.x/http-tests#session-and-authentication
