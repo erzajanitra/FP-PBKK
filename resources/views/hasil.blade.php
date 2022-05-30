@@ -38,10 +38,10 @@
                                 <td style="width:150px">Paket Wisata</td>
                                 <td>{{ $data->namawisata }}</td>
                             </tr>
-                            <tr>
+                            {{-- <tr>
                                 <td style="width:200px">Harga Ticket</td>
                                 <td>{{ $data->harga}}</td>
-                            </tr>
+                            </tr> --}}
                             <tr>
                                 <td style="width:150px">Nama</td>
                                 <td>{{ $data->nama }}</td>

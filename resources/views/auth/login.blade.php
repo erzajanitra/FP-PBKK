@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.navbar-register')
 
 @section('title', 'Dashboard Login')
 

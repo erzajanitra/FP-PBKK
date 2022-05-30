@@ -55,7 +55,7 @@
                                         @endforeach
                                     </datalist>
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label for="harga">Harga Ticket</label>
                                     <input class="form-control" type="text" name="harga" value="{{ old('harga') }}" list="nama-list-harga">
                                     <datalist id="nama-list-harga">
@@ -63,8 +63,8 @@
                                             <option data-value="{{ $d->id }}">{{ $d->price}}</option>
                                         @endforeach
                                     </datalist>
-                                </div>
-                                <div class="form-group">
+                                </div> --}}
+                                {{-- <div class="form-group">
                                     <label for="nama">Nama Lengkap</label>
                                     <input class="form-control" type="text" name="nama" value="{{ old('nama') }}" list="nama-list">
                                     <datalist id="nama-list">
@@ -72,6 +72,10 @@
                                             <option data-value="{{ $d->id }}">{{ $d->nama }}</option>
                                         @endforeach
                                     </datalist>
+                                </div> --}}
+                                <div class="form-group">
+                                    <label for="nama">Nama Lengkap</label>
+                                    <input class="form-control" type="text" name="nama" value="{{ old('nama') }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="jeniskelamin">Jenis Kelamin (L/P)</label>
