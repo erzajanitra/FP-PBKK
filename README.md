@@ -894,16 +894,8 @@ Laravel Localization and File Storage digunakan untuk menyimpan foto pada halama
 * Penyimpanan foto pada storage </br>
   Penyimpanan foto terletak pada path ```app\Http\Controllers\TicketController.php```
     ```php  
-    if ($request->hasFile('fotoktp')) {
-            $filenameWithExt = $request->file('fotoktp')->getClientOriginalName();
-            // Get Filename
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            // Get just Extension
-            $extension = $request->file('fotoktp')->getClientOriginalExtension();
-            // Filename To store
-            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
-            // Upload Image
-            $path = $request->file('fotoktp')->storeAs('public/images', $fileNameToStore);
+   if ($request->hasFile('fotoktp')) {
+            $validatedData['fotoktp'] = $request->file('fotoktp')->store('public/images');
         }
     ``` 
  * Menampilkan foto yang telah disimpan pada storage </br>
@@ -911,7 +903,7 @@ Laravel Localization and File Storage digunakan untuk menyimpan foto pada halama
    ```php 
      <tr>
         <td style="width:150px">Foto KTP</td>
-        <td><img src="{{ asset('storage/images/'. $data->fotoktp) }}" alt="" width="200px"></td>
+        <td><img src="{{ asset('storage/'. $data->fotoktp) }}" alt="" width="200px"></td>
      </tr>
    ``` 
 
