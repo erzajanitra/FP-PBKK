@@ -16,7 +16,7 @@ class TicketController extends Controller
     public function index()
     {
         // get all data from Ticket table
-        $data = Ticket::all();
+        $data = Pricelist::all();
         return view('ticket', [
             'data' => $data
         ]);

@@ -51,16 +51,16 @@
                                     <input class="form-control" type="text" name="namawisata" value="{{ old('namawisata') }}" list="nama-list">
                                     <datalist id="nama-list">
                                         @foreach ($data as $d)
-                                            <option data-value="{{ $d->price->id }}">{{ $d->price->name}}</option>
+                                            <option data-value="{{ $d->id }}">{{ $d->name}}</option>
                                         @endforeach
                                     </datalist>
                                 </div>
                                 <div class="form-group">
                                     <label for="harga">Harga Ticket</label>
-                                    <input class="form-control" type="text" name="harga" value="{{ old('harga') }}" list="nama-list">
-                                    <datalist id="nama-list">
+                                    <input class="form-control" type="text" name="harga" value="{{ old('harga') }}" list="nama-list-harga">
+                                    <datalist id="nama-list-harga">
                                         @foreach ($data as $d)
-                                            <option data-value="{{ $d->price->id }}">{{ $d->price->price}}</option>
+                                            <option data-value="{{ $d->id }}">{{ $d->price}}</option>
                                         @endforeach
                                     </datalist>
                                 </div>
