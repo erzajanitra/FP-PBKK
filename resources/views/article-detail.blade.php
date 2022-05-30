@@ -16,7 +16,7 @@
         <h5>By: <a href="#" class="text-decoration-none" style="color:#01F9C6">{{ $article->user->name }}</a></h6>
 
         <article class="mb-5">
-            <p>{!! $article->body !!}</p>
+            <p align="justify">{!! $article->body !!}</p>
         </article>
 
         <h5><a href="/article" class="btn">Back to Articles</a></h5>
