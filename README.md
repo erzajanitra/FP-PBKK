@@ -533,7 +533,8 @@
 **Laravel Model**  
 * Laravel model terletak pada path ```app\Models\```  
     * Terdapat beberapa model yang sudah kami buat, yaitu bernama ```Article```, ```Post```,```Price List```, dan ```Ticket```.  
-![models.png](https://drive.google.com/uc?export=view&id=1myTHxx0tQoC2AkYeesMnR6aygqbMknda)
+![models.png](https://drive.google.com/uc?export=view&id=1myTHxx0tQoC2AkYeesMnR6aygqbMknda)  
+
 **Laravel Eloquent**  
 * Terkait Laravel Eloquent, kami telah membuatnya dan terletak pada controller yaitu pada path ```App\Http\Controllers```.  
     * Eloquent pada ```Article Controller```.  
