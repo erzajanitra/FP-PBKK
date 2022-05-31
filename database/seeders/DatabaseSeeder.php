@@ -29,6 +29,16 @@ class DatabaseSeeder extends Seeder
             'isAdmin' => '1',
             'password' => bcrypt('admin123'),
         ]);
+        User::create([
+            'name' => 'Florentino',
+            'email' => 'florentino@gmail.com',
+            'password' => bcrypt('aaa12345'),
+        ]);
+        User::create([
+            'name' => 'Fian',
+            'email' => 'fian@gmail.com',
+            'password' => bcrypt('aaa12345'),
+        ]);
 
         // seeder artikel dari internet
         Article::create([
@@ -106,7 +116,7 @@ Bukit Teletubbies Bromo adalah bukit yang tepat berada di sisi Gunung Bromo. Pem
         ]);
 
         // factory artikel
-        Article::factory(2)->create();
+        Article::factory(3)->create();
 
         // contoh pricelist
         Pricelist::create([
