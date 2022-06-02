@@ -16,8 +16,8 @@ class PostTest extends DuskTestCase
     public function testExample()
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('/post')
-                ->assertSee('Post');
+            $browser->visit('/aboutus')
+                ->assertSee('Dibalik layar');
         });
     }
 }

@@ -15,18 +15,18 @@ class PostControllerTest extends TestCase
     {
         $this->assertTrue(true);
     }
-    public function testStoreDataSuccessfullyPost()
-    {
-        $repo = Mockery::mock(MySQLPostRepository::class);
+    // public function testStoreDataSuccessfullyPost()
+    // {
+    //     $repo = Mockery::mock(MySQLPostRepository::class);
 
-        $repo->shouldReceive('store')->once();
-        app()->instance(PostRepository::class, $repo);
-        $response = $this->post('/post', [
-            '_token' => csrf_token(),
-            'title' => 'test',
-            'description' => 'description'
-        ]);
-        $response->assertStatus(302);
-        $response->assertRedirect('/post');
-    }
+    //     $repo->shouldReceive('store')->once();
+    //     app()->instance(PostRepository::class, $repo);
+    //     $response = $this->post('/post', [
+    //         '_token' => csrf_token(),
+    //         'title' => 'test',
+    //         'description' => 'description'
+    //     ]);
+    //     $response->assertStatus(302);
+    //     $response->assertRedirect('/post');
+    // }
 }
