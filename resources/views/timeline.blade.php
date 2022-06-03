@@ -36,6 +36,18 @@
                     <p>Add & update readme <b>Required</b> & <b>Optional</b>.</p>
                 </div>
             </div>
+            <div class="left">
+                <div class="content">
+                    <h2>02 Juni 2022</h2>
+                    <p>Fixed Future Testing Dusk</b>.</p>
+                </div>
+            </div>
+            <div class="container right">
+                <div class="content">
+                    <h2>03 Juni 2022</h2>
+                    <p>Fixed database Ticket Reseveration</b>.</p>
+                </div>
+            </div>
             <div class="container left">
                 <div class="content">
                     <h2>19 Mei 2022 - 30 Juni 2022</h2>
