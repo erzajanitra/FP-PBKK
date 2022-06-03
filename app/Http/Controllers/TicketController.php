@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\DB;
 use App\Models\Ticket;
+use Illuminate\Support\Str;
 
 
 class TicketController extends Controller
@@ -40,6 +41,7 @@ class TicketController extends Controller
         Alert::success('Pesan Terkirim!', 'Terima kasih sudah melakukan Reservation Ticket Bromo Adventure 2022!');
         $validatedData = $request->validate([
             // 'namawisata' => 'required|min:8|max:50',
+            // 'pricelist_id' => 'required|numeric',
             // 'harga' => 'required|numeric',
             'nama' => 'required|min:8|max:50',
             'jeniskelamin' => 'required|max:1',
@@ -51,24 +53,38 @@ class TicketController extends Controller
         
         if ($request->hasFile('fotoktp')) {
             $validatedData['fotoktp'] = $request->file('fotoktp')->store('public/images');
-
             
         }
+        // dd($request);
 
-        Ticket::create($validatedData);
-        return redirect()->route('ticket.show')->with('tambah_data', 'Penambahan Pengguna berhasil');
+        $price = Pricelist::where('name', '=', Str::lower($request->namawisata))->first();
+        // dd($price);
+
+        $ticket = new Ticket();
+        $ticket->pricelist_id = $price->id;
+        $ticket->nama = $request->nama;
+        $ticket->jeniskelamin = $request->jeniskelamin;
+        $ticket->alamat = $request->alamat;
+        $ticket->noktp = $request->noktp;
+        $ticket->notelp = $request->notelp;
+        $ticket->fotoktp = $validatedData['fotoktp'];
+        $ticket->save();
+
+        // Ticket::create($validatedData);
+        return redirect()->route('ticket.show', $ticket->id )->with('tambah_data', 'Penambahan Pengguna berhasil');
         // return view('hasil', ['data' => $request]);
     }
 
-    public function show()
+    public function show($id)
     {
         // Problem
-        //$data = Ticket::where('id', $id)->first();
-        $data = Ticket::all();
-        $price = Pricelist::all();
+        // $data = Ticket::all();
+        $data = Ticket::where('id', $id)->first();
+        // $price = Pricelist::all();
+        // dd($data);
         return view('hasil', [
             'data' => $data,
-            'price'=> $price,
+            // 'price'=> $price,
         ]);
     }
 }

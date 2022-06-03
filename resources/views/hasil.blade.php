@@ -33,10 +33,10 @@
                         <p style="text-align: center"><img src="/img/bromo.jpg" alt="Logo Bromo" width="200px" style="border-radius: 30%; box-shadow: 10px 10px 10px rgb(92, 91, 91);"></p>
                         <h3 class="text-center" style="font-weight: bold;">Ticket Trip to Bromo Adventure 2022</h3>
                         <table class="table table-bordered table-striped" style="font-size: 1.2em">
-                            @foreach ( $data as $data )
+                            {{-- @foreach ( $data as $data ) --}}
                             <tr>
                                 <td style="width:150px">Paket Wisata</td>
-                                <td>{{ $data->name }}</td>
+                                <td>{{ $data->pricelist->name }}</td>
                             </tr>
                             {{-- <tr>
                                 <td style="width:200px">Harga Ticket</td>
@@ -66,7 +66,7 @@
                                 <td style="width:150px">Foto KTP</td>
                                 <td><img src="{{ asset('storage/'. $data->fotoktp) }}" alt="" width="200px"></td>
                             </tr>
-                            @endforeach
+                            {{-- @endforeach --}}
                         </table>
 
                         <p style="text-align: center"><a href="/ticket" class="btn btn-primary" style="text-align: center" >Kembali</a></p>

@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Pricelist extends Model
 {
     use HasFactory;
-
     protected $guarded = ['id'];
+    protected $table = 'pricelists';
+
     public function tickets(){
         return $this->hasMany(Ticket::class);
     }
