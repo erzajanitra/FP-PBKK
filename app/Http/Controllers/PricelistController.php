@@ -12,10 +12,7 @@ class PricelistController extends Controller
 		$pricelists = Pricelist::all();
 		
 		foreach($pricelists as $pl){
-			if (Cache::has($pl->id)) {
-				$value[] = Cache::get($pl->id);
-			}
-			else $value[] = 0;
+			$value[] = Cache::get($pl->id, '0');
 		}
 
 		return view('pricelist', [
