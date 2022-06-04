@@ -14,10 +14,24 @@ class PostTest extends TestCase
      *
      * @return void
      */
-    public function test_example()
+    public function test_article()
     {
-        $response = $this->get('/');
+        $response = $this->get('/article');
 
         $response->assertStatus(200);
     }
+    public function test_aboutus()
+    {
+        $response = $this->get('/aboutus');
+
+        $response->assertStatus(200);
+    }
+    public function test_timeline()
+    {
+        $response = $this->get('/timeline');
+
+        $response->assertStatus(200);
+    }
+  
+    
 }

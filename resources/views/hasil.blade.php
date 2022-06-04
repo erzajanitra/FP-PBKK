@@ -38,10 +38,7 @@
                                 <td style="width:150px">Paket Wisata</td>
                                 <td>{{ $data->pricelist->name }}</td>
                             </tr>
-                            {{-- <tr>
-                                <td style="width:200px">Harga Ticket</td>
-                                <td>{{ $data->harga}}</td>
-                            </tr> --}}
+                           
                             <tr>
                                 <td style="width:150px">Nama</td>
                                 <td>{{ $data->nama }}</td>
