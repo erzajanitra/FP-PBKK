@@ -1012,9 +1012,60 @@ Implementasi Laravel Session terdapat pada Controller, yaitu ConfirmablePassword
     }
     ```  
 **Laravel Caching**  
+Laravel Caching digunakan sebagai media menyimpan jumlah tiket yang terakhir dipesan untuk tiap paket pada tabel `pricelist` pada interval waktu tertentu.
+* Pembuatan migration cache
+Pertama-tama akan dibuat migration pada `/database/migrations/create_cache_table.php` dengan isi tabelnya sebagai berikut<br>
     ```php  
-    
+    Schema::create('cache', function (Blueprint $table) {
+            $table->string('key')->primary();
+            $table->mediumText('value');
+            $table->integer('expiration');
+        });
     ```  
+* Setup Cache Pada Controller
+Pada `app/Http/Controllers/TicketController` perlu ditambahkan `use Illuminate\Support\Facades\Cache;` karena akan menggunakan namespace `Cache`. Selanjutnya, pada fungsi `store()` juga akan ditambahkan potongan code sebagai berikut:<br>
+    ```php
+     // Increment Counter Cache
+        if (Cache::has($price->id)) {
+			Cache::increment($price->id);
+		}
+        else Cache::put($price->id, 1, now()->addHours(6));
+    ```
+ Bagian tersebut berfungsi agar ketika seorang user memesan tiket, maka selain menyimpan data tiket pada database fungsi `store()` juga akan menyimpan counter jumlah tiket yang dipesan pada cache dengan key yaitu id dari masing-masing paket `pricelist` yang ada. Cache akan terhapus secara otomatis setelah 6 jam, karena bertujuan untuk memberi rekomendasi pada user lain mengenai paket manakah yang paling laku baru-baru ini.<br><br>
+ 
+Selanjutnya, pada `app/Http/Controllers/PricelistController` juga akan ditambahkan `use Illuminate\Support\Facades\Cache;` karena nantinya fungsi `index()` pada `PricelistController` akan mengambil data dari cache. Berikut merupakan potongan codenya<br>
+
+```php
+      public function index(){
+
+		$pricelists = Pricelist::all();
+
+		foreach($pricelists as $pl){
+			$value[] = Cache::get($pl->id, '0');
+		}
+
+		return view('pricelist', [
+			"pemesan" => $value,
+			"pricelists" => $pricelists
+		]);
+	}
+```
+
+Data counter pada cache akan tersimpan pada array `$value`. Jika cache tidak ditemukan menggunakan key id paket (belum ada yang membeli paket tersebut dalam waktu dekat) maka akan diset nilainya 0. Selanjutnya hasil `$value` juga akan dikirimkan ke view `pricelist.blade.php`.
+* Menampilkan data cache pada `/resources/views/pricelist.blade.php`
+Jumlah pemesanan tiket terakhir akan ditampilkan dibawah harga dari masing-masing tiket dengan menambahkan line jumlah pemesanan terbaru sehingga berikut merupakan perulangan untuk tiap data `pricelist` yang ada:
+    ```blade.php
+    @foreach($pricelists as $pricelist)
+            <div class="col-md-12" style="text-align: center;margin-top: 5%;">
+                <details>
+                    <summary class="listharga" style="margin-bottom: 1%;">{{ $pricelist->name }}</summary>
+                    <div class="content"><h2>{{ $pricelist->description }}</h2>
+                    <p class="btn">Rp. {{ $pricelist->price }}</p>
+                    <p>Jumlah Pemesan Terbaru: {{ $pemesan[$pricelist->id-1] }}</p>
+                </details>
+            </div>
+    @endforeach
+    ```
 
 ## Laravel Unit Testing and Feature Testing  
 **Laravel Unit Testing**  
