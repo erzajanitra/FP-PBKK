@@ -7,6 +7,7 @@ use App\Models\Pricelist;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cache;
 use App\Models\Ticket;
 use Illuminate\Support\Str;
 
@@ -69,6 +70,12 @@ class TicketController extends Controller
         $ticket->notelp = $request->notelp;
         $ticket->fotoktp = $validatedData['fotoktp'];
         $ticket->save();
+
+        // Increment Counter Cache
+        if (Cache::has($price->id)) {
+			Cache::increment($price->id);
+		}
+        else Cache::put($price->id, 1, now()->addHours(6));
 
         // Ticket::create($validatedData);
         return redirect()->route('ticket.show', $ticket->id )->with('tambah_data', 'Penambahan Pengguna berhasil');

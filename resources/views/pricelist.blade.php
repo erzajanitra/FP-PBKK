@@ -32,6 +32,7 @@
                     <summary class="listharga" style="margin-bottom: 1%;">{{ $pricelist->name }}</summary>
                     <div class="content"><h2>{{ $pricelist->description }}</h2>
                     <p class="btn">Rp. {{ $pricelist->price }}</p>
+                    <p>Jumlah Pemesan Terbaru: {{ $pemesan[$pricelist->id-1] }}</p>
                 </details>
             </div>
             @endforeach
