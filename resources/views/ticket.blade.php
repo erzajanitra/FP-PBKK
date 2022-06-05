@@ -31,7 +31,7 @@
                     <div class="card mt-5">
                         <div class="card-body">
                             <p style="text-align: center"><img src="/img/bromo.jpg" alt="Logo Bromo" width="200px" style="border-radius: 30%; box-shadow: 10px 10px 10px rgb(92, 91, 91);"></p>
-                            <h3 class="text-center" style="font-weight: bold; padding-top: 5%;">Ticket Reservation Bromo Adventure 2022</h3>
+                            <h3 class="text-center" style="font-weight: bold; padding-top: 5%;"> {{__('form.title')}}</h3>
                             <br/>
                                 @if (count($errors) > 0)
                                 <div class="alert alert-danger">
@@ -47,7 +47,7 @@
                              <form action="{{ route('ticket.buat-data') }}" method="post" enctype="multipart/form-data" style="font-size: 1.2em">
                                 {{ csrf_field() }}
                                 <div class="form-group">
-                                    <label for="namawisata">Pilih Paket Wisata</label>
+                                    <label for="namawisata">{{__('form.profile.paketwisata')}}</label>
                                     <input class="form-control" type="text" name="namawisata" value="{{ old('namawisata') }}" list="nama-list">
                                     <datalist id="nama-list">
                                         @foreach ($data as $d)
@@ -55,30 +55,12 @@
                                         @endforeach
                                     </datalist>
                                 </div>
-                                {{-- <div class="form-group">
-                                    <label for="harga">Harga Ticket</label>
-                                    <input class="form-control" type="text" name="harga" value="{{ old('harga') }}" list="nama-list-harga">
-                                    <datalist id="nama-list-harga">
-                                        @foreach ($data as $d)
-                                            <option data-value="{{ $d->id }}">{{ $d->price}}</option>
-                                        @endforeach
-                                    </datalist>
-                                </div> --}}
-                                {{-- <div class="form-group">
-                                    <label for="nama">Nama Lengkap</label>
-                                    <input class="form-control" type="text" name="nama" value="{{ old('nama') }}" list="nama-list">
-                                    <datalist id="nama-list">
-                                        @foreach ($data as $d)
-                                            <option data-value="{{ $d->id }}">{{ $d->nama }}</option>
-                                        @endforeach
-                                    </datalist>
-                                </div> --}}
                                 <div class="form-group">
-                                    <label for="nama">Nama Lengkap</label>
+                                    <label for="nama">{{__('form.profile.name')}}</label>
                                     <input class="form-control" type="text" name="nama" value="{{ old('nama') }}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="jeniskelamin">Jenis Kelamin (L/P)</label>
+                                    <label for="jeniskelamin">{{__('form.profile.jeniskelamin')}}</label>
                                     <input class="form-control" type="text" name="jeniskelamin" value="{{ old('jeniskelamin') }}" list="jk-list">
                                     <datalist id="jk-list">
                                         @foreach ($data as $d)
@@ -87,27 +69,27 @@
                                     </datalist>
                                 </div>
                                 <div class="form-group">
-                                    <label for="alamat">Alamat Lengkap</label>
+                                    <label for="alamat">{{__('form.profile.address')}}</label>
                                     <input class="form-control" type="text" name="alamat" value="{{ old('alamat') }}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="noktp">Nomor KTP</label>
+                                    <label for="noktp">{{__('form.profile.noktp')}}</label>
                                     <input class="form-control" type="text" name="noktp" value="{{ old('noktp') }}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="notelp">Nomor Telepon</label>
+                                    <label for="notelp">{{__('form.profile.notelp')}}</label>
                                     <input class="form-control" type="text" name="notelp" value="{{ old('notelp') }}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="foto">Foto KTP</label>
+                                    <label for="foto">{{__('form.profile.fotoktp')}}</label>
                                     <input type="file" class="form-control-file" id="fotoktp" name="fotoktp" accept="image/png, image/jpg, image/jpeg">
                                 </div>
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1" >Tolong diteliti kembali, lalu dicentang!</label>
+                                    <label class="form-check-label" for="exampleCheck1" >{{__('form.thank')}}</label>
                                 </div>
                                 <div class="form-group" style="text-align: center;">
-                                    <input class="btn btn-primary" type="submit" style="font-weight: bold" value="Kirim">
+                                    <input class="btn btn-primary" type="submit" style="font-weight: bold" value="Send">
                                 </div>
                             </form>
                         </div>

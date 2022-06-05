@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\PricelistController;
+use App\Http\Controllers\LocalizationController;
+use phpDocumentor\Reflection\Location;
+use App\Http\Middleware\Localization;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Queue\Listener;
 use App\Http\Requests\Auth\LoginRequest;
@@ -83,3 +86,5 @@ Route::get('/post', [PostController::class, 'index']);
 Route::get('/post/create', [PostController::class, 'create']);
 Route::get('/post/edit/{id}', [PostController::class, 'edit']);
 Route::get('/post/delete/{post}', [PostController::class, 'destroy'])->middleware('can:delete,post');
+// Location
+Route::get('/form/{locale}', 'App\Http\Controllers\LocalizationController@index');
