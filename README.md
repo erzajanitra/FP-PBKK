@@ -1083,13 +1083,19 @@ Jumlah pemesanan tiket terakhir akan ditampilkan dibawah harga dari masing-masin
     php artisan test
     ```  
     
-![unit2.png](https://drive.google.com/uc?export=view&id=1wDeW_dyUXgRaBtxUcwmLEyo7BSxXgGGn)  
+![unit2.png](https://drive.google.com/uc?export=view&id=1FSASIr-lA0jaNy2j9KjWUDs5hoN9qEVx)  
+* Mencoba untuk menjalankan file ```test```.  
+    ```php
+    php artisan test --testsuite=Unit
+    ```  
+    
+![unit2.png](https://drive.google.com/uc?export=view&id=1ZxATmdlmR_gn6gzRSSh47jwgxYlspqwo)  
 * Mencoba menjalankan file ```test``` pada ```dusk```.  
     ```php  
     php artisan dusk
     ```  
     
-![unit3.png](https://drive.google.com/uc?export=view&id=1ErKNLrssGZwh0pE8U1kda4JI7-jX8Of9)  
+![unit3.png](https://drive.google.com/uc?export=view&id=1guLoMmzkBZhcO8GyCd4drNtR-hw4A8J_)  
 # Optional:
 ## Laravel Event and Listener
 * Implementasi Event and Listener terletak pada path ```app\Providers\EventServiceProvider```. 
