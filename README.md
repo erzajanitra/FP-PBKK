@@ -58,8 +58,8 @@
         Route::get('/', [TicketController::class, 'index'])->name('home');
         Route::get('/buat', [TicketController::class, 'create'])->name('tambah-data');
         Route::post('/buat-data', [TicketController::class, 'store'])->name('buat-data');
-        // Problem
-        Route::get('/hasil', [TicketController::class, 'show'])->name('show');
+        Route::get('/hasil/{id}', [TicketController::class, 'show'])->name('show');
+
     });
     // View Dashboar Login
     Route::get('/dashboard', function () {
@@ -270,21 +270,31 @@
 
             }
 
-            Ticket::create($validatedData);
+            $price = Pricelist::where('name', '=', Str::lower($request->namawisata))->first();
+            $ticket = new Ticket();
+            $ticket->pricelist_id = $price->id;
+            $ticket->nama = $request->nama;
+            $ticket->jeniskelamin = $request->jeniskelamin;
+            $ticket->alamat = $request->alamat;
+            $ticket->noktp = $request->noktp;
+            $ticket->notelp = $request->notelp;
+            $ticket->fotoktp = $validatedData['fotoktp'];
+            $ticket->save();
+            
+            if (Cache::has($price->id)) {
+                Cache::increment($price->id);
+            }
+            else Cache::put($price->id, 1, now()->addHours(6));
+            
             return redirect()->route('ticket.show')->with('tambah_data', 'Penambahan Pengguna berhasil');
-            // return view('hasil', ['data' => $request]);
         }
 
         public function show()
         {
-            // Problem
-            //$data = Ticket::where('id', $id)->first();
-            $data = Ticket::all();
-            $price = Pricelist::all();
-            return view('hasil', [
-                'data' => $data,
-                'price'=> $price,
-            ]);
+        $data = Ticket::where('id', $id)->first();
+        return view('hasil', [
+            'data' => $data,
+        ]);
         }
     }
     ```
@@ -342,10 +352,23 @@
 
 
             }
+            $price = Pricelist::where('name', '=', Str::lower($request->namawisata))->first();
+            $ticket = new Ticket();
+            $ticket->pricelist_id = $price->id;
+            $ticket->nama = $request->nama;
+            $ticket->jeniskelamin = $request->jeniskelamin;
+            $ticket->alamat = $request->alamat;
+            $ticket->noktp = $request->noktp;
+            $ticket->notelp = $request->notelp;
+            $ticket->fotoktp = $validatedData['fotoktp'];
+            $ticket->save();
+            
+            if (Cache::has($price->id)) {
+                Cache::increment($price->id);
+            }
+            else Cache::put($price->id, 1, now()->addHours(6))
 
-            Ticket::create($validatedData);
             return redirect()->route('ticket.show')->with('tambah_data', 'Penambahan Pengguna berhasil');
-            // return view('hasil', ['data' => $request]);
         }
     ```  
 **Laravel Validation**  
@@ -578,6 +601,15 @@
      <!-- form hasil -->
     <form action="/hasil" method="post" enctype="multipart/form-data" style="font-size: 1.2em">
         {{ csrf_field() }}
+         <div class="form-group">
+            <label for="namawisata">Pilih Paket Wisata</label>
+            <input class="form-control" type="text" name="namawisata" value="{{ old('namawisata') }}" list="nama-list">
+            <datalist id="nama-list">
+                @foreach ($data as $d)
+                    <option data-value="{{ $d->id }}">{{ $d->name}}</option>
+                @endforeach
+            </datalist>
+        </div>
         <div class="form-group">
             <label for="nama">Nama Lengkap</label>
             <input class="form-control" type="text" name="nama" value="{{ old('nama') }}">
@@ -770,68 +802,46 @@
     ```  
     * Eloquent pada ```Ticket Controller```.  
     ```php  
-    <?php
-    namespace App\Http\Controllers;
     use App\Http\Controllers\Controller;
-    use App\Models\Pricelist;
     use Illuminate\Http\Request;
-    use RealRashid\SweetAlert\Facades\Alert;
-    use Illuminate\Support\Facades\DB;
-    use App\Models\Ticket;
-
-    class TicketController extends Controller
-    {
-        //
-        public function index()
-        {
-            $data = Pricelist::all();
-            return view('ticket', [
-                'data' => $data
-            ]);
-        }
-        public function create()
-        {
-            $data = Ticket::All();
-            // $price = Pricelist::find($data->pricelists_id);
-            return view('ticket', [
-                'data' => $data,
-            ]);
-        }
-        // return view('ticket');
-
-
     public function store(Request $request)
-    {
-        Alert::success('Pesan Terkirim!', 'Terima kasih sudah melakukan Reservation Ticket Bromo Adventure 2022!');
-        $validatedData = $request->validate([
-            'nama' => 'required|min:8|max:50',
-            'jeniskelamin' => 'required|max:1',
-            'noktp' => 'required|numeric',
-            'alamat' => 'required|min:8|max:100',
-            'notelp' => 'required|numeric',
-            'fotoktp' => 'required|mimes:png,jpg,jpeg|max:2048',
-        ]);
-        
-        if ($request->hasFile('fotoktp')) {
-            $validatedData['fotoktp'] = $request->file('fotoktp')->store('public/images');
+        {
+            Alert::success('Pesan Terkirim!', 'Terima kasih sudah melakukan Reservation Ticket Bromo Adventure 2022!');
+            $validatedData = $request->validate([
+                // 'namawisata' => 'required|min:8|max:50',
+                // 'harga' => 'required|numeric',
+                'nama' => 'required|min:8|max:50',
+                'jeniskelamin' => 'required|max:1',
+                'noktp' => 'required|numeric',
+                'alamat' => 'required|min:8|max:100',
+                'notelp' => 'required|numeric',
+                'fotoktp' => 'required|mimes:png,jpg,jpeg|max:2048',
+            ]);
+
+            if ($request->hasFile('fotoktp')) {
+                $validatedData['fotoktp'] = $request->file('fotoktp')->store('public/images');
+
+
+            }
+            $price = Pricelist::where('name', '=', Str::lower($request->namawisata))->first();
+            $ticket = new Ticket();
+            $ticket->pricelist_id = $price->id;
+            $ticket->nama = $request->nama;
+            $ticket->jeniskelamin = $request->jeniskelamin;
+            $ticket->alamat = $request->alamat;
+            $ticket->noktp = $request->noktp;
+            $ticket->notelp = $request->notelp;
+            $ticket->fotoktp = $validatedData['fotoktp'];
+            $ticket->save();
+            
+            if (Cache::has($price->id)) {
+                Cache::increment($price->id);
+            }
+            else Cache::put($price->id, 1, now()->addHours(6))
+
+            return redirect()->route('ticket.show')->with('tambah_data', 'Penambahan Pengguna berhasil');
         }
-
-        Ticket::create($validatedData);
-        return redirect()->route('ticket.show')->with('tambah_data', 'Penambahan Pengguna berhasil');
-    }
-
-    public function show()
-    {
-        $data = Ticket::all();
-        $price = Pricelist::all();
-        return view('hasil', [
-            'data' => $data,
-            'price'=> $price,
-        ]);
-    }
-    }
-
-    ```  
+    ```    
 **Laravel Query Builder**  
 * Pada Laravel Query Builder terdapat pada beberapa file ```PostController.php``` pada path ```app\Http\PostController.php```.  
     * Menggunakan method ```Post```
@@ -945,6 +955,11 @@ Laravel Authentication and Authorization digunakan untuk menangani user yang ing
   
 ## Laravel Localization and File Storage  
 Laravel Localization and File Storage digunakan untuk menyimpan foto pada halaman Ticket Reservations. Pada halaman tersebut, user akan menginput beberapa data yang dibutuhkan untuk pembelian tiket dan mengupload foto KTP. Supaya foto KTP dapat tampil di halaman berikutnya, yaitu halaman bukti pembelian tiket, maka butuh dilakukan penyimpanan foto pada Storage.
+* Untuk melakukan penyimpanan pada Storage, perlu menjalankan command berikut
+    ```
+    php artisan storage:link
+    ```
+    dan menambahkan ```FILESYSTEM_DRIVER=public``` pada file `.env`
 * Penyimpanan foto pada storage </br>
   Penyimpanan foto terletak pada path ```app\Http\Controllers\TicketController.php```
     ```php  
@@ -1104,10 +1119,6 @@ Jumlah pemesanan tiket terakhir akan ditampilkan dibawah harga dari masing-masin
         'Illuminate\Auth\Events\Registered' => [
             'App\Listeners\LogRegisteredUser',
         ],
-    
-        // 'Illuminate\Auth\Events\Attempting' => [
-        //     'App\Listeners\LogAuthenticationAttempt',
-        // ],
     
         'Illuminate\Auth\Events\Authenticated' => [
             'App\Listeners\LogAuthenticated',
