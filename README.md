@@ -953,7 +953,99 @@ Laravel Authentication and Authorization digunakan untuk menangani user yang ing
     }
     ```
   
-## Laravel Localization and File Storage  
+## Laravel Localization and File Storage 
+**Laravel Localization**  
+Laravel Localization digunakan untuk mengganti atau menggunakan 2 bahasa atau lebih sesuai dengan yang kita inginkan. Untuk menggunakan laravel localization, kita bisa menggunakan cara sebagai berikut:  
+* Menambahkan Controller baru yang bernama ```LocalizationController``` pada path ```app\Http\Controllers\LocalizationController.php```, yang berisikan command sebagai berikut:  
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+
+class LocalizationController extends Controller
+{
+    //
+    public function index($locale)
+    {
+        App::setlocale($locale);
+        session()->put('locale', $locale);
+        return redirect()->back();
+    }
+}
+```  
+* Menambahkan Middleware baru yang bernama ```Localization``` pada path ```app\Http\Middleware\Localization.php``` , yang berisikan command sebagai berikut:  
+```php
+<?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+
+class Localization
+{
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
+     * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
+     */
+    public function handle(Request $request, Closure $next)
+    {
+        if (session()->has('locale')) {
+            App::setlocale(session()->get('locale'));
+        }
+        return $next($request);
+    }
+}
+```  
+* Menambahkan beberapa command sebagai berikut, pada file ```Kernel.php``` pada path ```app\Http\Kernel.php```.  
+```php
+'web' => [
+            \App\Http\Middleware\EncryptCookies::class,
+            \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+            \Illuminate\Session\Middleware\StartSession::class,
+            // \Illuminate\Session\Middleware\AuthenticateSession::class,
+            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+            \App\Http\Middleware\VerifyCsrfToken::class,
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            \App\Http\Middleware\Localization::class,
+        ],
+```  
+* Menambahkan folder dan file baru pada path ```resource\lang``` yaitu menambahkan folder ```en``` untuk bahasa Inggris dan ```id``` untuk bahasa Indonesia. Selain itu menambahkan file baru yang bernama ```form.php``` pada kedua folder tersebut dimana berisi halaman mana yang mau kita ubah.  
+![lang.png](https://drive.google.com/uc?export=view&id=1PuFlLuBQOcbd8WELMSq7TfBzWU4KnWBR)  
+* Kita panggil pada view yang telah kita sediakan, seperti contoh pada ```navbar-reservation.blade.php```.  
+```php
+ @php $locale = session()->get('locale'); @endphp
+        <li class="nav-item dropdown" style="font-size: 15px em; color:white">
+            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+        @switch($locale)
+                    @case('en')
+                    <img src="/img/en.png" alt="" width=15% height="auto"> English
+                    {{-- <img src="{{asset('/img/en.png')}}">  --}}
+                    @break
+                    @case('id')
+                    <img src="/img/id.png" alt=""  width=15% height="auto"> Indonesia
+                    @break
+                    @default
+                    <img src="/img/en.png" alt=""  width=105% height="auto"> English
+                    {{-- <img src="{{asset('/img/en.png')}}"> English --}}
+                @endswitch    
+                <span class="caret"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/ticket/en"><img src="/img/en.png" alt=""  width=15% height="auto"> English</a>
+                <a class="dropdown-item" href="/ticket/id"><img src="/img/id.png" alt=""  width=15% height="auto"> Indonesia</a>
+            </div>
+        </li>
+```  
+**Laravel File Storage**  
 Laravel Localization and File Storage digunakan untuk menyimpan foto pada halaman Ticket Reservations. Pada halaman tersebut, user akan menginput beberapa data yang dibutuhkan untuk pembelian tiket dan mengupload foto KTP. Supaya foto KTP dapat tampil di halaman berikutnya, yaitu halaman bukti pembelian tiket, maka butuh dilakukan penyimpanan foto pada Storage.
 * Untuk melakukan penyimpanan pada Storage, perlu menjalankan command berikut
     ```
