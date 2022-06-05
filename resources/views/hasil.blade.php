@@ -60,8 +60,8 @@
                                 <td>{{ $data->notelp }}</td>
                             </tr>
                             <tr>
-                                <td style="width:150px"></td>
-                                <td><img src="{{ asset('storage/'. $data->fotoktp) }}" alt="" width="200px">{{__('form.profile.fotoktp')}}</td>
+                                <td style="width:150px">{{__('form.profile.fotoktp')}}</td>
+                                <td><img src="{{ asset('storage/'. $data->fotoktp) }}" alt="" width="200px"></td>
                             </tr>
                             {{-- @endforeach --}}
                         </table>
