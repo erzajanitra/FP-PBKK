@@ -1,5 +1,5 @@
 {{-- CSS --}}
-<link rel="stylesheet" href="/css/navbarlogin.css">
+<link rel="stylesheet" href="/css/navbar-reservation.css">
 {{-- Font Poppins --}}
 <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 <nav>
@@ -10,6 +10,7 @@
         <li><a href="/pricelist" class="nav-li">Price List</a></li>
         <li><a href="/ticket" class="nav-li">Ticket reservations</a></li>
         {{-- <li><a href="/logout" class="nav-li">Logout</a></li> --}}
+        
         <x-slot name="content">
             <!-- Authentication -->
             <form method="POST" action="{{ route('logout') }}">
@@ -20,29 +21,28 @@
                                     this.closest('form').submit();">
                     {{ __('Log Out') }}
             </x-dropdown-link>
-    
-
+        
             @php $locale = session()->get('locale'); @endphp
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown" style="font-size: 15px em; color:white">
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-			        @switch($locale)
+			@switch($locale)
                         @case('en')
-                        <img src="/img/en.png" alt="" width=25% height="auto"> English
+                        <img src="/img/en.png" alt="" width=15% height="auto"> English
                         {{-- <img src="{{asset('/img/en.png')}}">  --}}
                         @break
                         @case('id')
-                        <img src="/img/id.png" alt=""  width=25% height="auto"> Indonesia
+                        <img src="/img/id.png" alt=""  width=15% height="auto"> Indonesia
                         @break
                         @default
-                        <img src="/img/en.png" alt=""  width=25% height="auto"> English
+                        <img src="/img/en.png" alt=""  width=105% height="auto"> English
                         {{-- <img src="{{asset('/img/en.png')}}"> English --}}
                     @endswitch    
                     <span class="caret"></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/ticket/en"><img src="/img/en.png" alt=""  width=25% height="auto"> English</a>
-                    <a class="dropdown-item" href="/ticket/id"><img src="/img/id.png" alt=""  width=25% height="auto"> Indonesia</a>
+                    <a class="dropdown-item" href="/ticket/en"><img src="/img/en.png" alt=""  width=15% height="auto"> English</a>
+                    <a class="dropdown-item" href="/ticket/id"><img src="/img/id.png" alt=""  width=15% height="auto"> Indonesia</a>
                 </div>
             </li>
     </ul>
