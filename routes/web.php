@@ -48,6 +48,7 @@ Route::get('/timeline', function () {
 // Route::post('/hasil', [TicketController::class, 'hasil']);
 Route::group(['prefix' => 'ticket', 'as' => 'ticket.'], function () {
     Route::get('/', [TicketController::class, 'index'])->name('home');
+    Route::get('/{locale}', [TicketController::class, 'indexlocale'])->name('home');
     Route::get('/buat', [TicketController::class, 'create'])->name('tambah-data');
     Route::post('/buat-data', [TicketController::class, 'store'])->name('buat-data');
     // Problem

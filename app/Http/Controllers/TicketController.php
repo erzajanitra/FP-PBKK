@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\App;
 use App\Models\Ticket;
 use Illuminate\Support\Str;
 
@@ -17,6 +18,7 @@ class TicketController extends Controller
     //
     public function index()
     {
+        // Default locale
         // get all data from Ticket table
         $data = Pricelist::all();
         return view('ticket', [
@@ -25,6 +27,20 @@ class TicketController extends Controller
         // $ticket = Ticket::all();
         // return view('ticket');
     }
+
+    public function indexlocale($locale){
+        // Chosen locale
+        App::setlocale($locale);
+        session()->put('locale', $locale);
+        // get all data from Ticket table
+        $data = Pricelist::all();
+        return view('ticket', [
+            'data' => $data
+        ]);
+        // $ticket = Ticket::all();
+        // return view('ticket');
+    }
+
     public function create()
     {
         $data = Ticket::All();

@@ -1,4 +1,4 @@
-@extends('layouts.loggedin')
+@extends('layouts.loginreservation')
 
 @section('title', 'Ticket Reservation')
 
