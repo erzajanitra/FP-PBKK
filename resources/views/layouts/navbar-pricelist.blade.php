@@ -7,10 +7,20 @@
     <p class="judul">Bromo Adventure 2022</p>
     <ul>
         <li><a href="/article" class="nav-li">{{__('message.article')}}</a></li>
-        <li><a href="/register" class="nav-li">{{__('message.register')}}</a></li>
-        <li><a href="/aboutus" class="nav-li">{{__('message.aboutus')}}</a></li>
-        <li><a href="/timeline" class="nav-li">Timeline</a></li>
-              
+        <li><a href="/pricelist" class="nav-li">{{__('message.price_list')}}</a></li>
+        <li><a href="/ticket" class="nav-li">{{__('message.ticket_reserv')}}</a></li>
+        {{-- <li><a href="/logout" class="nav-li">Logout</a></li> --}}
+        <x-slot name="content">
+            <!-- Authentication -->
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+
+                <x-dropdown-link :href="route('logout')"
+                        onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+                    {{__('message.logout')}}
+            </x-dropdown-link>
+            
 
             @php $locale = session()->get('locale'); @endphp
             <li class="nav-item dropdown">
@@ -31,8 +41,8 @@
                     <span class="caret"></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/login/en"><img src="/img/en.png" alt=""  width=15% height="auto"> EN</a>
-                    <a class="dropdown-item" href="/login/id"><img src="/img/id.png" alt=""  width=15% height="auto"> ID</a>
+                    <a class="dropdown-item" href="/pricelist/en"><img src="/img/en.png" alt=""  width=15% height="auto"> EN</a>
+                    <a class="dropdown-item" href="/pricelist/id"><img src="/img/id.png" alt=""  width=15% height="auto"> ID</a>
                 </div>
             </li>
          </ul>

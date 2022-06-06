@@ -29,6 +29,7 @@ Route::get('/', function () {
 // View Article
 Route::group(['prefix' => 'article'], function () {
     Route::get("/", [ArticleController::class, 'index']);
+    Route::get('/{locale}', [ArticleController::class, 'indexlocale'])->name('home');
     Route::get("/{article:slug}", [ArticleController::class, 'detail']);
 });
 // View About Us
@@ -37,15 +38,15 @@ Route::get('/aboutus', function () {
 });
 // View Price List
 Route::get('/pricelist', [PricelistController::class, 'index']);
+Route::get('/pricelist/{locale}', [PricelistController::class, 'indexlocale']);
+Route::get('/login/{locale}', [LoginController::class, 'indexlocale']);
+
 // View Time Line
 Route::get('/timeline', function () {
     return view('timeline');
 });
-// View Reservation Ticket
-//Asigment Formulir
-// Route::get('/ticket', [TicketController::class, 'formulir']);
-// // Route::post('/ticket', [TicketController::class, 'store']);
-// Route::post('/hasil', [TicketController::class, 'hasil']);
+
+// View Ticket Reservations
 Route::group(['prefix' => 'ticket', 'as' => 'ticket.'], function () {
     Route::get('/', [TicketController::class, 'index'])->name('home');
     Route::get('/{locale}', [TicketController::class, 'indexlocale'])->name('home');
@@ -87,5 +88,7 @@ Route::get('/post', [PostController::class, 'index']);
 Route::get('/post/create', [PostController::class, 'create']);
 Route::get('/post/edit/{id}', [PostController::class, 'edit']);
 Route::get('/post/delete/{post}', [PostController::class, 'destroy'])->middleware('can:delete,post');
-// Location
-Route::get('/form/{locale}', 'App\Http\Controllers\LocalizationController@index');
+
+// Localization EN ID
+Route::get('/form/{locale}', 'App\Http\Controllers\LocalizationController@index'); //ticket
+Route::get('/message/{locale}', 'App\Http\Controllers\LocalizationController@index'); //article, price list,

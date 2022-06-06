@@ -1,4 +1,4 @@
-@extends('layouts.loggedin')
+@extends('layouts.loginpricelist')
 
 @section('title', 'Price List')
 
@@ -24,7 +24,7 @@
     <div class="container" style="font-family: Poppins;">
 		<div class="row" style="line-height: 1.2; style="text-align: center;">
             <div class="pricetitle col-md-12">
-                Price List
+                {{__('message.title_price')}}
             </div>
             @foreach($pricelists as $pricelist)
             <div class="col-md-12" style="text-align: center;margin-top: 5%;">

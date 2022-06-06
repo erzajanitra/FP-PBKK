@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\App;
 
 class LoginController extends Controller
 {
@@ -45,5 +46,12 @@ class LoginController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/');
+    }
+    public function indexlocale($locale){
+        // Chosen locale
+        App::setlocale($locale);
+        session()->put('locale', $locale);
+        // get all data from Ticket table
+        
     }
 }

@@ -13,4 +13,9 @@ return [
     ],
     "thank" => "Tolong diteliti kembali, lalu dicentang!",
     "button" => "Kirim",
+    "article" => "Artikel",
+    "price_list" => "Harga Paket Wisata",
+    "ticket_reserv" => "Pemesanan Tiket",
+    "logout" => "Keluar",
+    
 ];

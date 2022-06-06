@@ -7,7 +7,7 @@
     <p class="judul">Bromo Adventure 2022</p>
     <ul>
         <li><a href="/article" class="nav-li">{{__('message.article')}}</a></li>
-        <li><a href="/register" class="nav-li">{{__('message.register')}}</a></li>
+        <li><a href="/login" class="nav-li">{{__('message.login')}}</a></li>
         <li><a href="/aboutus" class="nav-li">{{__('message.aboutus')}}</a></li>
         <li><a href="/timeline" class="nav-li">Timeline</a></li>
               
@@ -31,8 +31,8 @@
                     <span class="caret"></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/login/en"><img src="/img/en.png" alt=""  width=15% height="auto"> EN</a>
-                    <a class="dropdown-item" href="/login/id"><img src="/img/id.png" alt=""  width=15% height="auto"> ID</a>
+                    <a class="dropdown-item" href="/article/en"><img src="/img/en.png" alt=""  width=15% height="auto"> EN</a>
+                    <a class="dropdown-item" href="/article/id"><img src="/img/id.png" alt=""  width=15% height="auto"> ID</a>
                 </div>
             </li>
          </ul>

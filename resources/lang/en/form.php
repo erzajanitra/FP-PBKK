@@ -13,5 +13,11 @@ return [
     ],
     "thank" => "Please research again, then tick!",
     "button" => "Send",
-    "buttonn" => "Back"
+    "buttonn" => "Back",
+    "article" => "Article",
+    "price_list" => "Price List",
+    "ticket_reserv" => "Ticket Reservations",
+    "logout" => "Logout",
+    
+
 ];
