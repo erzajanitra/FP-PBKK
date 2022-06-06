@@ -23,8 +23,15 @@
 <body>
     <div class="container" style="font-family: Poppins;">
         <div class="Team">
-            <div class="row" style="line-height: 1.2; text-align: center; padding-top:2%">
+            <div class="row" style="line-height: 1.2; text-align: center; padding-top:2%;">
                 <div class="member col-md-12">
+                    <div style="background-color:white; color:black;" class="col-md-12 pb-3">
+                        <marquee behavior="" direction="left">
+                            <h6 class="my-auto">
+                                 <b> Terima kasih banyak Pak Agus Budi Raharjo atas ilmunya selama ini pada mata kuliah Pemrograman Berbasis Kerangka Kerja (B), semoga ilmu yang bapak berikan berkah bagi kami semua. </b>
+                            </h6>
+                        </marquee>
+                    </div>
                     Apa itu Bromo Adventure 2022?
                 </div>
                 <div class="col-md-12" style="text-align: center; padding-top:2%" >

@@ -32,7 +32,7 @@
             </div> --}}
             <div class="container right">
                 <div class="content">
-                    <h2>19 Mei 2022 - 30 Juni 2022</h2>
+                    <h2>19 Mei 2022 - 06 Juni 2022</h2>
                     <p>Add & update readme <b>Required</b> & <b>Optional</b>.</p>
                 </div>
             </div>
