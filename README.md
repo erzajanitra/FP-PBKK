@@ -1271,3 +1271,15 @@ Pada Laravel Composer Package, kami menggunakan **Laravel Breeze** untuk fitur a
 # Referensi 
 * Install Alert: https://realrashid.github.io/sweet-alert/
 * Referensi Laravel Unit Testing and Feature Testing: https://laravel.com/docs/8.x/http-tests#session-and-authentication
+### Seeder Artikel
+* https://www.yoshiwafa.com/gunung-bromo/
+* https://petruswahyu.wordpress.com/2018/11/24/keindahan-gunung-bromo/
+* https://travelingyuk.com/liburan-ke-gunung-bromo/300914
+* https://travel.detik.com/travel-news/d-5514267/6-fakta-gunung-bromo-destinasi-wisata-hits-di-jawa-timur
+* https://www.hipwee.com/narasi/sebuah-perjalanan-ke-gunung-bromo/
+* https://www.indonesia.travel/id/id/destinasi/java/taman-nasional-bromo-tengger-semeru
+* https://travel.tempo.co/read/1574947/taman-nasional-bromo-tengger-semeru-resmikan-pembukaan-orchidarium-ranu-darungan
+* https://foresteract.com/taman-nasional-bromo-tengger-semeru/
+* https://travel.detik.com/travel-news/d-5739038/mengenal-zonasi-taman-nasional-bromo-tengger-semeru
+* https://rimbakita.com/taman-nasional-bromo-tengger-semeru/
+
