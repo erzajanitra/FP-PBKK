@@ -4,6 +4,8 @@
 | 1 | Erza Janitradevi Nadine |   05111940000153 |
 | 2 | Florentino Benedictus|   5025201222 |
 | 3 | Fian Awamiry Maulana | 5025201035 |
+## Link Presentasi : 
+   [PPT Kelompok 1](https://docs.google.com/presentation/d/10AeQqswbJhFj1d6m3GbA7mq5ox0L_02L/edit?usp=sharing&ouid=106904049080820792855&rtpof=true&sd=true)
 # Required:
 ## Laravel Route, Controller and Middleware  
 **Laravel Route**  
