@@ -29,7 +29,7 @@ Route::get('/', function () {
 // View Article
 Route::group(['prefix' => 'article'], function () {
     Route::get("/", [ArticleController::class, 'index']);
-    Route::get('/{locale}', [ArticleController::class, 'indexlocale'])->name('home');
+    // Route::get('/{locale}', [ArticleController::class, 'indexlocale'])->name('home');
     Route::get("/{article:slug}", [ArticleController::class, 'detail']);
 });
 // View About Us
@@ -39,8 +39,9 @@ Route::get('/aboutus', function () {
 // View Price List
 Route::get('/pricelist', [PricelistController::class, 'index']);
 Route::get('/pricelist/{locale}', [PricelistController::class, 'indexlocale']);
-Route::get('/login/{locale}', [LoginController::class, 'indexlocale']);
-
+Route::get('/login', function () {
+    return view('login');
+});
 // View Time Line
 Route::get('/timeline', function () {
     return view('timeline');
