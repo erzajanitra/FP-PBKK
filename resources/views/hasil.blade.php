@@ -52,7 +52,7 @@
                                 <td>{{ $data->alamat }}</td>
                             </tr>
                             <tr>
-                                <td style="width:150px"{{__('form.profile.noktp')}}</td>
+                                <td style="width:150px">{{__('form.profile.noktp')}}</td>
                                 <td>{{ $data->noktp }}</td>
                             </tr>
                             <tr>
